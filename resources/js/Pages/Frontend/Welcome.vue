@@ -2,6 +2,7 @@
 <script setup>
 
 import Frontend from '@/Layouts/FrontEndLayout.vue';
+import Footer from '@/Components/Footer.vue';
 import { Head } from '@inertiajs/vue3';
 
 
@@ -243,6 +244,104 @@ import { Head } from '@inertiajs/vue3';
 		</div>
 	</section>
 	<!-- Why Our Portfolio End -->
+
+    <!-- Our Pricing start  -->
+    <section>
+        <div class="md:pt-20 md:pb-13.5 pt-5 pb-7.5 relative bg-[#fef7fe] bg-[url('../images/background/bg5.jpg')] bg-bottom bg-cover bg-no-repeat">
+                <div class="container relative z-[1]">
+                    <div class="text-center mb-14">
+                        <h2 class="lg:text-4.5xl text-3xl font-extrabold mb-2.5 text-primary font-nunito">Our Pricing</h2>
+                        <div class="overflow-hidden">
+                            <div class="relative inline-block before:content-[''] before:bg-[url('../images/line.png')] before:absolute before:top-1/2 before:w-20 before:h-3.75 before:-translate-y-1/2 before:bg-[length:auto_100%] before:bg-no-repeat before:bg-center before:left-auto before:right-13.5
+                            after:content-[''] after:bg-[url('../images/line1.png')] after:absolute after:top-1/2 after:w-20 after:h-3.75 after:-translate-y-1/2 after:bg-[length:auto_100%] after:bg-no-repeat after:bg-center after:right-auto after:left-13.5 after:right-13.5">
+                                <i class="flaticon-spa text-primary text-4.5xl"></i>
+                            </div>
+                        </div>
+                        <p class="mx-auto max-w-[700px] pt-2.5 text-[#494949] mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <div class="lg:col-span-6 col-span-12 px-3.75">
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Deep Tissue massage</h4>
+                                    <p>60 – 100 Minute Session </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$40.00</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Swedish massage</h4>
+                                    <p>30 – 40 Minute Session  </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$35.00</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Deep Tissue massage</h4>
+                                    <p>60 – 100 Minute Session </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$40.00</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Therapeutic massage</h4>
+                                    <p>40 – 60 Minute Session</p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$30.00</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6 col-span-12 px-3.75">
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Hot Stone massage</h4>
+                                    <p>50 – 60 Minute Session </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$34.00</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Couples massage</h4>
+                                    <p>20 – 30 Minute Session  </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$42.00</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Facial</h4>
+                                    <p>15 – 30 Minute Session </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$38.00</h3>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 flex hover:scale-105">
+                                <div class="flex-1">
+                                    <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Body Waxing</h4>
+                                    <p>80 – 100 Minute Session </p>
+                                </div>
+                                <div class="self-center">
+                                    <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">$65.00</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- Our Pricing End  -->
+    <Footer />
 
 
 
