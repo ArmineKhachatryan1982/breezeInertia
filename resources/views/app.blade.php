@@ -87,7 +87,7 @@
             <script src="{{ asset('assets/vendor/lightgallery/dist/plugins/thumbnail/lg-thumbnail.min.js') }}"></script>
             <script src="{{ asset('assets/vendor/lightgallery/dist/plugins/zoom/lg-zoom.min.js') }}"></script>
             <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.js') }}"></script>
-            <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
+            {{-- <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script> --}}
             <script src="{{ asset('assets/js/dz.ajax.js') }}"></script>
             <script src="{{ asset('assets/js/dz.carousel.js') }}"></script>
             <script src="{{ asset('assets/js/custom.min.js') }}"></script>
