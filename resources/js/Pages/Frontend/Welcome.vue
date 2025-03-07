@@ -2,7 +2,7 @@
 <script setup>
 
 import Frontend from '@/Layouts/FrontEndLayout.vue';
-import Footer from '@/Components/Footer.vue';
+// import Footer from '@/Components/Footer.vue';
 import { Head } from '@inertiajs/vue3';
 
 
@@ -12,7 +12,9 @@ import { Head } from '@inertiajs/vue3';
 <template>
     <Head title="Home page"/>
     <!-- <Navbar/> -->
-    <Frontend/>
+    <Frontend>
+
+
     <!-- benner Start -->
 	<section>
 
@@ -341,7 +343,8 @@ import { Head } from '@inertiajs/vue3';
             </div>
     </section>
     <!-- Our Pricing End  -->
-    <Footer />
+</Frontend>
+
 
 
 

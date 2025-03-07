@@ -14,6 +14,19 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
+Route::get('/clear-cache', function() {
+
+    $run = Artisan::call('config:clear');
+
+    $run = Artisan::call('cache:clear');
+
+    $run = Artisan::call('config:cache');
+
+
+    return 'FINISHED';
+
+});
 Route::get('/',[FrontendController::class,'index'])->name('home');
 Route::get('/booking',[FrontendController::class,'booking'])->name('booking');
 
