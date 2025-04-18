@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/',[ FrontendController::class,'index' ])->name('home');
 Route::get('/booking',[ FrontendController::class,'booking' ])->name('booking');
 Route::get('/services',[ ServiceController::class,'index'])->name('services');
+
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
+
 Route::get('/servise-details/{id}',[ServiceDetailsController::class,'show'])->name('service-details');
 Route::get('upload_file',[CategoriesFileController::class,'index'])->name('upload_file');
 Route::post('category_file',[CategoriesFileController::class,'store'])->name('category_file');

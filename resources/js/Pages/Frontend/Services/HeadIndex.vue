@@ -11,7 +11,7 @@
 
     const { categories } = usePage().props;
     console.log( categories)
-    const selectedCategory = ref(categories.length ? categories[1] : null); // Устанавливаем первый элемент
+    const selectedCategory = ref(categories.length ? categories[0] : null); // Устанавливаем первый элемент
 
     const handleCategorySelect = (category) => {
         selectedCategory.value = category;
@@ -29,9 +29,9 @@
 					<div class="grid grid-cols-12 gap-x-7.5">
 
                        <Sidebar :categories="categories" @category-selected="handleCategorySelect" />
-                       <ServiceDetailsSection
+                       <!-- <ServiceDetailsSection
                              :service-details="selectedCategory?.service_details ?? []"
-                        />
+                        /> -->
 
 
 					</div>

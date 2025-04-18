@@ -1,22 +1,5 @@
 <script setup>
-//  import { usePage, Link } from '@inertiajs/vue3';
-//  import { defineEmits } from 'vue';
 
-//  defineProps({
-//     categories: Array
-// });
-
-// const emit = defineEmits(['category-selected']);
-// console.log(emit)
-
-// const selectCategory = (category) => {
-//   emit('category-selected', category);
-// };
-
-
-// const {categories}=usePage().props
-// console.log(categories)
-//  @click="selectCategory(category.id)"
 
 
 const props = defineProps({
@@ -24,7 +7,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['category-selected']);
-
+// мы передаем объект category родительскому компоненту
 const selectCategory = (category) => {
     emit('category-selected', category);
 };

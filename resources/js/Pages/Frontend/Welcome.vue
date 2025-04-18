@@ -3,7 +3,7 @@
 
 import Frontend from '@/Layouts/FrontEndLayout.vue';
 // import Footer from '@/Components/Footer.vue';
-import { Head,usePage } from '@inertiajs/vue3';
+import { Head,usePage, Link } from '@inertiajs/vue3';
 
  const props = usePage().props;
 
@@ -80,7 +80,9 @@ import { Head,usePage } from '@inertiajs/vue3';
 							<div class="overflow-hidden">
 								<h3 class="text-lg mb-2.5 font-bold text-[#232323] font-nunito">{{category.name}}</h3>
 								<p class="mb-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-								<a href="services-details.html" class="site-button-secondry">Read More</a>
+								<!-- <a href="services-details.html" class="site-button-secondry">Read More</a> -->
+
+                                <Link :href="route('service.show',category.id)" class="site-button-secondry">{{category.name}}</Link>
 							</div>
 						</div>
 					</div>
