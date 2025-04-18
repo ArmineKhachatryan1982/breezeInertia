@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('filables', function (Blueprint $table) {
             $table->id();
-            
+            $table->morphs('filable'); // Creates `filable_id` and `filable_type`
+            $table->string('name');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('filables');
     }
 };

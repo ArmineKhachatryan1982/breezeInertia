@@ -3,8 +3,9 @@
 
 import Frontend from '@/Layouts/FrontEndLayout.vue';
 // import Footer from '@/Components/Footer.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head,usePage } from '@inertiajs/vue3';
 
+ const props = usePage().props;
 
 
 </script>
@@ -34,7 +35,7 @@ import { Head } from '@inertiajs/vue3';
                         <div class="buttons">
                             <!-- <a class="site-button sm:px-7.5 px-5 py-2.5 sm:py-3.75 mr-[18px] rotate-[3px] leading-[22px]" href="contact.html">Get A Qutoe</a>
                             <a class="site-button-secondry sm:px-7.5 px-5 py-2.5 sm:py-3.75 rotate-[3px] leading-[22px]" href="about-us.html">About us</a> -->
-                            <a class="site-button-secondry sm:px-7.5 px-5 py-2.5 sm:py-3.75 rotate-[3px] leading-[22px]" href="https://wa/me/79253759998"><i class="fa-solid fa-phone mr-1.25"></i>Быстрый звонок</a>
+                            <a class="site-button-secondry sm:px-7.5 px-5 py-2.5 sm:py-3.75 rotate-[3px] leading-[22px]" href="https://wa.me/79253759998"><i class="fa-solid fa-phone mr-1.25"></i>Быстрый звонок</a>
                         </div>
                     </div>
                 </div>
@@ -68,8 +69,22 @@ import { Head } from '@inertiajs/vue3';
     <div  class="lg:pt-29 lg:pb-[90px] py-8 relative bg-[#fef7fe] bg-[url('/assets/images/background/bg5.jpg')] bg-bottom bg-cover bg-no-repeat">
 
 			<div class="container">
-				<div class="grid grid-cols-12 gap-7.5">
-					<div class="lg:col-span-3 md:col-span-6 col-span-12 md:mb-8 ">
+				<div class="grid grid-cols-12 gap-7.5" >
+                    <div class="lg:col-span-3 md:col-span-6 col-span-12 md:mb-8 " v-for="category in props.categories" :key="category.id">
+						<div class="px-3.75 pb-7.5 pt-5 bg-white text-center relative duration-500 hover:shadow-card hover:translate-y-[-18px]">
+							<div class="w-20 mb-2.5 inline-block text-center p-2">
+								<span class="icon-cell text-primary">
+									<i class="text-6xl align-middle flaticon-woman"></i>
+								</span>
+							</div>
+							<div class="overflow-hidden">
+								<h3 class="text-lg mb-2.5 font-bold text-[#232323] font-nunito">{{category.name}}</h3>
+								<p class="mb-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<a href="services-details.html" class="site-button-secondry">Read More</a>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="lg:col-span-3 md:col-span-6 col-span-12 md:mb-8 ">
 						<div class="px-3.75 pb-7.5 pt-5 bg-white text-center relative duration-500 hover:shadow-card hover:translate-y-[-18px]">
 							<div class="w-20 mb-2.5 inline-block text-center p-2">
 								<span class="icon-cell text-primary">
@@ -124,7 +139,7 @@ import { Head } from '@inertiajs/vue3';
 								<a href="services-details.html" class="site-button-secondry">Read More</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

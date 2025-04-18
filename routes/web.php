@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoriesFileController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Service\ServiceController;
+use App\Http\Controllers\Service\ServiceDetailsController;
+use App\Models\ServiceDetails;
+use App\Services\FileUploadService;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -27,8 +32,7 @@ Route::get('/clear-cache', function() {
     return 'FINISHED';
 
 });
-Route::get('/',[FrontendController::class,'index'])->name('home');
-Route::get('/booking',[FrontendController::class,'booking'])->name('booking');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -39,5 +43,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/',[ FrontendController::class,'index' ])->name('home');
+Route::get('/booking',[ FrontendController::class,'booking' ])->name('booking');
+Route::get('/services',[ ServiceController::class,'index'])->name('services');
+Route::get('/servise-details/{id}',[ServiceDetailsController::class,'show'])->name('service-details');
+Route::get('upload_file',[CategoriesFileController::class,'index'])->name('upload_file');
+Route::post('category_file',[CategoriesFileController::class,'store'])->name('category_file');
+
+
+Route::get('get-file', [FileUploadService::class, 'get_file'])->name('get-file');
 
 require __DIR__.'/auth.php';
