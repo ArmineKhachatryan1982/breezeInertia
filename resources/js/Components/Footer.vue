@@ -1,4 +1,17 @@
 
+
+<script setup>
+import { reactive } from 'vue'
+import { router, useForm } from '@inertiajs/vue3'
+
+const form = useForm({
+   email: '',
+})
+
+const submit = () => {
+  form.post('/users')
+}
+</script>
 <template>
     <footer>
 		<!-- footer top part -->
@@ -12,15 +25,15 @@
 							</a>
 						</div>
 						<div class="md:mb-4.75 mb-6.25">
-							<h3 class="mb-2.5 capitalize md:text-2xl text-xl font-bold font-nunito text-black">Subscribe To Our Newsletter</h3>
-							<p class="text-black capitalize mb-5 text-sm leading-6 tracking-tight">If you have any questions, you can contact with us so that we can give you a satisfying answer. Subscribe to our newsletter to get our latest products.</p>
+							<h3 class="mb-2.5 capitalize md:text-2xl text-xl font-bold font-nunito text-black">Подпишитесь на нашу рассылку</h3>
+							<p class="text-black capitalize mb-5 text-sm leading-6 tracking-tight">Если у вас есть вопросы, вы можете связаться с нами, чтобы мы могли дать вам удовлетворительный ответ. Подпишитесь на нашу рассылку, чтобы получать наши последние продукты.</p>
 							<div class="subscribe-form mb-5">
 								<form class="dzSubscribe" action="assets/script/mailchamp.php" method="post">
 									<div class="dzSubscribeMsg"></div>
 									<div class="w-full relative flex flex-wrap items-stretch">
 										<input name="dzEmail" required="required" class="bg-transparent w-[1%] flex-auto outline-none py-2.5 px-5 mr-1.25 h-13.5 border-2 border-[#0000001a] rounded-3xl text-[15px] table-cell text-[#333] max-xl:mb-2.5 focus:bg-white" placeholder="Your Email Address" type="email">
 										<span class="input-group-btn pl-2.5">
-											<button name="submit" id="submit" type="submit" class="site-button  bg-primary text-white rounded-full h-13.5">Subscribe</button>
+											<button name="submit" id="submit" type="submit" class="site-button  bg-primary text-white rounded-full h-13.5">Подписаться</button>
 										</span>
 									</div>
 								</form>

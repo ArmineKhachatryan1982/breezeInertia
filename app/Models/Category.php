@@ -9,7 +9,7 @@ class Category extends Model
     protected $guarded = [];
 
     public function service_details(){
-        return $this->hasMany(ServiceDetails::class);
+        return $this->hasOne(ServiceDetails::class);
     }
 
 
