@@ -13,10 +13,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::with('service_details')->get();
 
         return Inertia::render('Frontend/Welcome',[
-            
+
             'categories' =>$categories
 
         ]);

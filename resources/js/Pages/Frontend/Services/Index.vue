@@ -1,7 +1,7 @@
 <script setup>
 
     import Frontend from '@/Layouts/FrontEndLayout.vue';
-    import { ref, computed } from 'vue';
+    import { ref, computed , watchEffect} from 'vue';
     import {  usePage } from '@inertiajs/vue3';
 
     import { Head } from '@inertiajs/vue3';
@@ -9,9 +9,20 @@
     import ServiceDetailsSection from './ServiceDetailsSection.vue';
 
 
-    const { categories } = usePage().props;
-    console.log( categories)
-    const selectedCategory = ref(categories.length ? categories[1] : null); // Устанавливаем первый элемент
+    const { categories, category_id } = usePage().props;
+    const selectedCategory = ref(null);
+
+
+    // Устанавливаем нужную категорию по `category_id`, если есть
+        watchEffect(() => {
+            if (category_id && categories.length) {
+                selectedCategory.value = categories.find(c => c.id === parseInt(category_id)) ?? categories[0];
+            } else {
+                selectedCategory.value = categories.length ? categories[0] : null;
+            }
+        });
+    console.log( categories,'from  service index')
+
 
     const handleCategorySelect = (category) => {
         selectedCategory.value = category;

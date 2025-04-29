@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Service\ServiceDetailsController;
+use App\Http\Controllers\SubscriberController;
 use App\Models\ServiceDetails;
 use App\Services\FileUploadService;
 use Illuminate\Foundation\Application;
@@ -49,10 +50,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/',[ FrontendController::class,'index' ])->name('home');
 Route::get('/booking',[ FrontendController::class,'booking' ])->name('booking');
 Route::get('/services',[ ServiceController::class,'index'])->name('services');
-
-Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
-
 Route::get('/servise-details/{id}',[ServiceDetailsController::class,'show'])->name('service-details');
+Route::post('/subscriber',[SubscriberController::class,'index'])->name('subscriber');
+
 Route::get('upload_file',[CategoriesFileController::class,'index'])->name('upload_file');
 Route::post('category_file',[CategoriesFileController::class,'store'])->name('category_file');
 

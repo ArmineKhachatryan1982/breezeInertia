@@ -19,12 +19,7 @@ const selectCategory = (category) => {
                                     <li v-for="category in categories"  :key="category.id" class="mb-[3px] active"
 
                                      >
-                                        <!-- <Link :href="route('service-details',category.id)" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] border-l-[3px] border-primary">{{category.name}}</Link> -->
-                                        <!-- <button @click="selectCategory(category)"
-                                                class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] border-l-[3px] border-primary"
-                                                 >
-                                                {{ category.name }}
-                                            </button> -->
+                                       
                                              <a @click.prevent="selectCategory(category)" href="#" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] border-l-[3px] border-primary">
                                                    {{ category.name }}
                                             </a>
