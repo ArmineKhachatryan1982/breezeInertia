@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AparatController;
 use App\Http\Controllers\CategoriesFileController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -56,5 +58,9 @@ Route::post('category_file',[CategoriesFileController::class,'store'])->name('ca
 
 
 Route::get('get-file', [FileUploadService::class, 'get_file'])->name('get-file');
+Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
+
+Route::get('create-aparat',[AparatController::class,'index'])->name('aparat.create');
+
 
 require __DIR__.'/auth.php';
