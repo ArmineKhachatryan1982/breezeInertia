@@ -1,5 +1,42 @@
 <script setup>
+    import {  useForm } from '@inertiajs/vue3';
+    import { onMounted,ref, watch , computed } from 'vue';
     import Admin from '../Admin.vue';
+
+    const previewUrls = ref([]);
+
+
+
+    const form = useForm({
+                    title: '',
+                    description: '',
+                    file: []
+
+                })
+
+const handleFileUpload = (event) => {
+        const file = event.target.files[0];
+
+    if (file) {
+        let fileName = file.name;
+        let filePreview = { url: URL.createObjectURL(file), name: fileName };
+            form.file.push(file);
+            // form.file = [...form.file, file];
+            previewUrls.value.push(filePreview ); // Generate preview
+            console.log()
+
+
+
+    }
+
+};
+
+const submitForm = () => {
+
+    form.post(route('aparat.store'));
+
+};
+
 </script>
 <template>
     <Admin>
@@ -7,16 +44,34 @@
             <div class="lg:max-w-[500px] md:mb-7.5">
                                     <div class="p-7.5 border border-[#dfdfdf] seth lg:h-[435.648px]">
                                         <div class="flex tab-content nav" x-data="{ tab: 'login' }">
-                                            <form class="w-full" x-show="tab == 'login'" x-transition:enter="transition-all duration-700 easy-in-out" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+                                            <form
+                                               @submit.prevent="submitForm"
+                                               class="w-full" x-show="tab == 'login'" x-transition:enter="transition-all duration-700 easy-in-out" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                                                 <h4 class="font-bold font-nunito text-black text-[25px]/[35px]"></h4>
-                                                <p class="mb-4">If you have an account with us, please log in.</p>
+                                                <!-- <p class="mb-4">If you have an account with us, please log in.</p> -->
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">E-MAIL *</label>
-                                                    <input name="dzName" required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Your Email Id" type="email">
+                                                    <label class="font-bold mb-2.5 inline-block">Title *</label>
+                                                    <input
+                                                      type="text"
+                                                      v-model="form.title"
+                                                      required=""
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Title" >
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label class="font-bold mb-2.5 inline-block">Description </label>
+                                                    <textarea
+                                                      v-model="form.description"
+                                                      required=""
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Your Email Id" >
+                                                    </textarea>
                                                 </div>
                                                 <div class="mb-6.25">
-                                                    <label class="font-bold mb-2.5 inline-block">PASSWORD *</label>
-                                                    <input name="dzName" required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " placeholder="Type Password" type="password">
+                                                    <label class="font-bold mb-2.5 inline-block">Upload file*</label>
+                                                    <input
+                                                       type="file"
+                                                       @change="handleFileUpload"
+
+                                                     required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
                                                 </div>
                                                 <div class="text-left">
                                                     <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">send</button>

@@ -23,9 +23,9 @@
 														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Sweaters</a></li>
 														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Tops</a></li>
 														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">
-                                                         
+
 														Women</a></li>
-                                                        <Link :href="route('aparat.create')">Aparat create</Link>
+                                                        <Link :href="route('admin.aparat.list')">Aparat create</Link>
 													</ul>
 												</div>
 											</div>
