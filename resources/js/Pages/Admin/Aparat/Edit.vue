@@ -4,69 +4,108 @@
     import Admin from '../Admin.vue';
 
     const previewUrls = ref([]);
+    const { aparat,files } = usePage().props;
+    if(files.length>0){
+        console.log(5456)
+
+        previewUrls.value = files[0]
+
+
+    }
+    console.log(previewUrls)
+
 
 
 
     const form = useForm({
-                    title: '',
-                    description: '',
+                    title: aparat.title,
+                    description: aparat.description,
                     file: []
 
                 })
 
 const handleFileUpload = (event) => {
-        const file = event.target.files[0];
+        const file = event.target.files;
 
-    if (file) {
-        let fileName = file.name;
-        let filePreview = { url: URL.createObjectURL(file), name: fileName };
-            form.file.push(file);
-            // form.file = [...form.file, file];
-            previewUrls.value.push(filePreview ); // Generate preview
-            console.log()
+    // if (file) {
+    //     console.log(file)
+
+    //     let fileName = file.name;
+    //     let filePreview = { url: URL.createObjectURL(file), name: fileName };
+    //         form.file.push(file);
+    //         // form.file = [...form.file, file];
+    //         previewUrls.value.push(filePreview ); // Generate preview
+    //         console.log()
 
 
 
-    }
+    // }
+//     if (files.length) {
+//        for (let file of files) {
+//             let fileName = file.name;
+//             let filePreview = { url: URL.createObjectURL(file), name: fileName };
+//                 form.file.push(file);
+//                 previewUrls.value.push(filePreview ); // Generate preview
+
+
+//         }
+//   }
 
 };
 
 const submitForm = () => {
 
-    form.post(route('admin.aparat.store'), {
+    form.post(route('admin.aparat.update',{ id:aparat.id }),{
         onSuccess: () => {
             //es elchi ashxatum
             if (usePage().props.flash?.success) {
                     alert(usePage().props.flash.success);
            }
 
-            form.reset(); // очищает все поля формы
-             alert("Аппарат успешно создан!")
-
+             window.location.reload();
         },
     });
 
 };
-// chi ashxatum  woch watch voche l onmountedov
-// Получение flash-сообщения
-const flashSuccess = computed(() => usePage().props.flash?.success)
+const isImage = (file) => {
+//     // alert(1111)
+    console.log(file,'2222')
+    // console.log(file.name,'2223')
+  const imageFormats = ['jpg', 'jpeg', 'png','PNG', 'gif', 'bmp', 'svg'];
+//   const fileExtension = file.name.split('.').pop().toLowerCase();
 
-watch(flashSuccess, (message) => {
-  if (message) {
-    console.log(message, 4448)
-    alert(message) // или toast
-  }
-})
-onMounted(() => {
-  const success = usePage().props.flash?.success
-  if (success) {
-    alert(success)
-    // или console.log(success)
-    // или toast(success)
-  }
-})
+//   return imageFormats.includes(fileExtension);
+return true;
+};
+
+
 
 </script>
+<style>
+.preview-item {
+  position: relative;
+  display: block;
+  border:1px solid red;
+}
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+.delete-icon {
+  position: absolute;
+  top: 0;
+  right: 50px;
+
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+</style>
 <template>
     <Admin>
         <template #aparat_content>
@@ -99,11 +138,42 @@ onMounted(() => {
                                                     <input
                                                        type="file"
                                                        @change="handleFileUpload"
-
-                                                     required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
                                                 </div>
+                                                 <div v-if="files && files.length" >
+                                                        <div v-for="(file, index) in files" :key="file.id" class="preview-item" :data-id="file.id" >
+                                                            <div class="files d-flex align-items-start mt-2" v-if="isImage(file)">
+
+                                                                <img :src="file.path"   class="preview-img"  />
+                                                                <i class="bx bx-trash delete-icon bg-green-500" data-db @click.prevent="removeNewFile(file.id, $event)"></i>
+
+                                                            </div>
+                                                            </div>
+                                                             </div>
+                                                             <!-- prew -->
+                                                              <div v-if="previewUrls.length">
+
+                                                        <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
+                                                            <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
+                                                                <img :src="file.url" class="preview-img">
+                                                                <i class="bx bx-trash delete-icon bg-green-500" @click="removeNewFile(index, $event)"></i>
+
+                                                            </div>
+                                                            </div>
+                                                            </div>
+
+
+
+
+                                                 <!-- <div    class="files d-flex align-items-start mt-2"  >
+                                                                <img :src="'/storage/' + form.image" class="preview-img">
+                                                                <i class="bx bx-trash delete-icon bg-green-500" @click="removeNewFile(index, $event)"></i>
+
+                                                            </div> -->
+
+
                                                 <div class="text-left">
-                                                    <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">send</button>
+                                                    <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">Сохранить</button>
                                                     <!-- <a @click.prevent="tab = 'forgot-password'" href="#forgot-password" class="ml-1.25 text-left text-primary hover:text-[#666] duration-500 "><i class="fa-solid fa-unlock"></i> Forgot Password</a> -->
                                                 </div>
                                             </form>

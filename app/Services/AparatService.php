@@ -2,6 +2,9 @@
 namespace App\Services;
 
 use App\Interface\AparatInterface;
+use App\Models\Aparat;
+use Illuminate\Support\Arr;
+
 class  AparatService
 {
 
@@ -19,13 +22,30 @@ class  AparatService
         return $this->aparatRepository->all();
     }
 
-    public function store(array $data)
+    public function store($dto)
     {
-        return $this->aparatRepository->create($data);
+        $files_array = $dto->file;
+        $data = Arr::except($dto->toArray(), ['file']);
+        $object = $this->aparatRepository->create($data);
+        $get_file = $this->file_upload($files_array,"aparats",$object);
+
+        return $object;
     }
 
-    public function update($id, array $data)
+    public function update($id, $dto)
     {
+
+        if ($dto->file !== null && $dto->file !== '') {
+            dd($dto->file);
+            $files_array = $dto->file;
+
+            $object = Aparat::where('id',$id)->first();
+            $get_file = $this->file_upload($files_array,"aparats", $object);
+
+        }
+        $data = Arr::except($dto->toArray(), ['file']);
+
+        $files_array = $dto->file;
         return $this->aparatRepository->update($id, $data);
     }
 
@@ -40,6 +60,24 @@ class  AparatService
     //     return $this->aparatRepository->getModel()->where('status', 1)->get();
     // }
 
+    public function file_upload( $files_array, $folder, $object ){
+        // dd($files_array);
 
+        foreach( $files_array as $fle){
+            $path = FileUploadService::upload($fle,$folder."/".$object->id);
+            dd($path);
+            $object->image = $path;
+            $object->save();
+            // dd($path);
+            // dd($servise_details->files());
+            // $service_details->files()->create([
+            //     'path' => $path,
+            //     'name' => $fle->getClientOriginalName()
+            // ]);
+
+        }
+        return true;
+
+    }
 
 }

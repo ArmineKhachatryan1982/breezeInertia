@@ -3,34 +3,23 @@
 
 </script>
 <template>
-    	<div class="mb-7.5">
-								<div id="accordion1" x-data="{selected:1}">
-									<div class="mb-[-1px]">
-										<div class="relative">
-											<h5 class="text-2xl font-bold text-black font-nunito">
-												<a class="dropdown-item after:content-['\e61a'] after:text-sm after:font-['themify'] after:absolute after:top-1/2 after:-translate-y-1/2 after:right-0 after:text-black border-b-2 border-[#ddd] block text-base font-bold py-2.5 capitalize text-primary active" href="javascript:void(0);" :class="{'text-primary active': selected === 1,'': selected !=1}" aria-expanded="true">
-													Product categories
-												</a>
-											</h5>
-										</div>
-										<div id="categories" x-show="selected == 1" x-collapse="" style="height: auto;">
-											<div class="my-3.75">
-												<div class="mb-7.5">
-													 <ul>
-														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Bags</a></li>
-														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Jeans</a></li>
-														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Shoes</a></li>
-														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Sweaters</a></li>
-														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">Tops</a></li>
-														<li class="capitalize border-b border-[#6666661c] relative p-2.5 pl-3.75 leading-5 after:content-['\f105'] after:absolute after:left-0 after:top-2.5 after:block after:font-[FontAwesome] after:text-[11px]"><a href="javascript:void(0);">
+    <div class="lg:col-span-3 md:col-span-4 col-span-12">
+    <div class="sticky-top sticky top-29">
+        <ul class="service-list mb-7.5">
 
-														Women</a></li>
-                                                        <Link :href="route('admin.aparat.list')">Aparat create</Link>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+
+            <!-- <li class="mb-[3px]  active"><a href="services-details.html" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] border-l-[3px] border-primary">Haircut &amp; Styling</a></li> -->
+            <li class="mb-[3px]" > <Link :href="route('admin.aparat.list')" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035]" :class="{ 'border-l-[3px] border-primary': route().current('admin.aparat.list') }" >Список устройств</Link></li>
+            <li class="mb-[3px]"><a href="services-details.html" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035]">Manicure &amp; Pedicure  </a></li>
+            <li class="mb-[3px]"><a href="services-details.html" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035]">Skin Care</a></li>
+            <li class="mb-[3px]"><a href="services-details.html" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035]">Body Treatment</a></li>
+            <li class="mb-[3px]"><a href="services-details.html" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035]">Massage</a></li>
+        </ul>
+        <!-- <div class="p-7.5 bg-[#fef5fe] mb-7.5">
+            <h4 class="text-[28px]/[35px] mb-3.75 font-bold text-black font-nunito">Brochure</h4>
+            <p class="leading-6 mb-6 ">Working from home meant we could vary snack and coffee breaks.</p>
+            <a href="javascript:void(0);" class="site-button">Download PDF</a>
+        </div> -->
+    </div>
+    </div>
 </template>

@@ -67,7 +67,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('aparat')->name('aparat.')->group(function () {
 
         Route::get('list', [AparatController::class, 'index'])->name('list');
+        Route::get('create', [AparatController::class, 'create'])->name('create');
         Route::post('store', [AparatController::class, 'store'])->name('store');
+        Route::get('edit/{model}',[AparatController::class, 'edit'])->name('edit');
+        Route::post('/{id}',[AparatController::class, 'update'])->name('update');
     });
 });
 

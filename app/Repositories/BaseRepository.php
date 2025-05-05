@@ -11,6 +11,7 @@ class BaseRepository implements BaseInterface
     public function __construct(Model $model)
     {
         $this->model = $model;
+
     }
 
     public function all()
@@ -25,6 +26,7 @@ class BaseRepository implements BaseInterface
 
     public function create(array $attributes)
     {
+
         return $this->model->create($attributes);
     }
 
