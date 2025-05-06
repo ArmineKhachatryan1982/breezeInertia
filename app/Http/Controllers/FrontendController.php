@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aparat;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -14,10 +15,13 @@ class FrontendController extends Controller
     public function index()
     {
         $categories = Category::with('service_details')->get();
+        $aparats = Aparat::all();
+   
 
         return Inertia::render('Frontend/Welcome',[
 
-            'categories' =>$categories
+            'categories' =>$categories,
+            "aparat" =>$aparats
 
         ]);
     }

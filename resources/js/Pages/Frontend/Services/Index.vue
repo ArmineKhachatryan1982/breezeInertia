@@ -25,7 +25,9 @@
 
 
     const handleCategorySelect = (category) => {
+        console.log(category,777)
         selectedCategory.value = category;
+        console.log(selectedCategory.value,666)
     };
 
 

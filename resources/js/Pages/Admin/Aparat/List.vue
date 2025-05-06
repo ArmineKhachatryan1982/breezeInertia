@@ -11,7 +11,7 @@
     <Admin>
         <template #aparat_content>
             <div class="lg:max-w-[700px] md:mb-7.5">
-                                    <div class="p-7.5 border border-[#dfdfdf] seth lg:h-[435.648px]">
+                                    <div class="p-7.5 border border-[#dfdfdf] seth ">
                                         <div class="text-right m-2">
                                             <Link :href="route('admin.aparat.create')" class="site-button bg-primary text-white rounded-full h-13.5">Создать</Link>
                                         </div>
@@ -44,6 +44,18 @@
                                                             </svg>
 
                                                         </Link>
+                                                        <svg
+                                                            @click="removeNewFile(index, $event)"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            class="delete-icon bg-red-500"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="white"
+                                                            >
+                                                            <path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 0 0-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/>
+                                                            </svg>
+
 
                                                      </td>
                                                 </tr>

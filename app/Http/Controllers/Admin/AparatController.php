@@ -56,10 +56,6 @@ class AparatController extends Controller
     public function update(Request $request, $id){
 
         $model = $this->service->update($id,AparatDto::fromRequestDto($request));
-        // if($model->image!=null){
-        //     $files[0]['path'] = asset('storage/' . $model->image);
-        //     $files[0]['id'] = $model->id;
-        // }
 
 
     }
