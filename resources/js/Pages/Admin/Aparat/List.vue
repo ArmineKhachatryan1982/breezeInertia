@@ -6,6 +6,47 @@
     const {data}= usePage().props;
     console.log(data)
 
+    const removeRecord =async (index,event) => {
+        if (!event) {
+        console.log("Event is undefined");
+        return;
+    }
+
+    const hasDataDb = event.target.hasAttribute('data-db');
+    if (hasDataDb) {
+
+        const element = event.target.closest(".preview-item");
+
+
+            try {
+                const response = await axios.delete(`/delete-item/filables/${index}`);
+
+
+                // Remove file from UI after successful deletion
+                if (element) {
+
+                    const elementId = element.getAttribute("data-id"); // Get data-id attribute
+
+                    if (parseInt(elementId) === index) { // Compare with file.id
+                       element.remove(); // Remove from DOM
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error deleting file:', error.response?.data || error.message);
+            }
+
+
+
+    // Perform your logic here for when the attribute exists
+  } else {
+
+        form.file.splice(index, 1);
+        previewUrls.value.splice(index, 1);
+  }
+};
+
+
 </script>
 <template>
     <Admin>
@@ -44,18 +85,7 @@
                                                             </svg>
 
                                                         </Link>
-                                                        <svg
-                                                            @click="removeNewFile(index, $event)"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            class="delete-icon bg-red-500"
-                                                            width="24"
-                                                            height="24"
-                                                            viewBox="0 0 24 24"
-                                                            fill="white"
-                                                            >
-                                                            <path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 0 0-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/>
-                                                            </svg>
-
+                                                        <i class="bx bx-trash delete-icon" data-db @click.prevent="removeRecord(file.id, $event)"></i>
 
                                                      </td>
                                                 </tr>

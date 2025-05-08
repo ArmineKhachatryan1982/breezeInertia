@@ -30,6 +30,7 @@ Route::get('/clear-cache', function() {
     $run = Artisan::call('cache:clear');
 
     $run = Artisan::call('config:cache');
+    Artisan::call('migrate', ['--force' => true]); // Важно для продакшна
 
 
     return 'FINISHED';
@@ -73,6 +74,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/{id}',[AparatController::class, 'update'])->name('update');
     });
 });
+Route::get('delete-item/{tb_name}/{id}', [DeleteItemController::class, 'index'])->name('delete_item');
 
 
 

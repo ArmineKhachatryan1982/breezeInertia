@@ -40,6 +40,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/icons/flaticon/flaticon.css') }} ">
 	<link rel="stylesheet" href="{{ asset('assets/icons/fontawesome/css/all.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/icons/themify-icons/themify-icons.min.css') }}">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styleSwitcher.css') }}">

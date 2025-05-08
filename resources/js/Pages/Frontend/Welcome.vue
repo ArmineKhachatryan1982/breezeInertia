@@ -88,7 +88,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                                 <h3 class="text-lg mb-2.5 font-bold text-[#232323] font-nunito h-[56px] overflow-hidden line-clamp-2">
                                       {{ category.name }}
                                 </h3>
-								<p class="mb-6 line-clamp-2">{{category.service_details.description}}</p>
+								<p class="mb-6 line-clamp-2">{{category.service_details?.description}}</p>
 								<!-- <a ="services-details.html" class="site-button-secondry">Read More</a> -->
                                  <a @click.prevent="selectCategory(category)" class="site-button-secondry cursor-pointer">{{ category.name }}</a>
 							</div>
