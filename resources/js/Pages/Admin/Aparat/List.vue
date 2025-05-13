@@ -4,25 +4,24 @@
     import { Head, useForm, usePage, router, Link  } from '@inertiajs/vue3';
     import Admin from '../Admin.vue';
     const {data}= usePage().props;
+    const appUrl = import.meta.env.VITE_APP_URL;
+
     console.log(data)
 
-    const removeRecord =async (index,event) => {
+    const removeRecord =async (index,tb_name,event) => {
         if (!event) {
-        console.log("Event is undefined");
-        return;
-    }
-
-    const hasDataDb = event.target.hasAttribute('data-db');
-    if (hasDataDb) {
-
-        const element = event.target.closest(".preview-item");
-
-
+                console.log("Event is undefined");
+                return;
+           }
             try {
-                const response = await axios.delete(`/delete-item/filables/${index}`);
+                // alert(`Index: ${index}, Table: ${tb_name}`);
 
+                const response = await axios.delete(`/delete-item/${tb_name}/${index}`);
 
-                // Remove file from UI after successful deletion
+                  // Find the closest <tr> with data-id
+                 const element = event.target.closest('tr');
+
+                // Remove element from UI  from db
                 if (element) {
 
                     const elementId = element.getAttribute("data-id"); // Get data-id attribute
@@ -36,14 +35,6 @@
                 console.error('Error deleting file:', error.response?.data || error.message);
             }
 
-
-
-    // Perform your logic here for when the attribute exists
-  } else {
-
-        form.file.splice(index, 1);
-        previewUrls.value.splice(index, 1);
-  }
 };
 
 
@@ -71,22 +62,22 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr v-for="(item, index) in data" :key="index">
+                                                <tr v-for="(item, index) in data" :key="index" :data-id="item.id" >
                                                     <td class="border border-gray-400 px-4 py-2">{{++index}}</td>
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.title }}</td>
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.description }}</td>
                                                     <td class="border border-gray-400 px-4 py-2">
-                                                    <img :src="'/storage/' + item.image" alt="image" class="w-20 h-20 object-cover" />
+                                                    <img :src="appUrl +'/storage/' + item.image" alt="image" class="w-20 h-20 object-cover" />
                                                     </td>
-                                                     <td class="border border-gray-400 px-4 py-2">
-                                                        <Link :href="route('admin.aparat.edit',item.id)" >
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600 hover:text-blue-500 cursor-pointer">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L8.317 18.397a4.5 4.5 0 0 1-1.89 1.128l-4.06 1.277a.375.375 0 0 1-.475-.474l1.277-4.06a4.5 4.5 0 0 1 1.128-1.89L16.862 3.487z" />
+                                                     <td class="border border-gray-400 px-4 py-2 ">
+                                                        <div class="flex justify-between items-center space-x-4">
+                                                            <Link :href="route('admin.aparat.edit', item.id)">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 hover:text-blue-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L8.317 18.397a4.5 4.5 0 0 1-1.89 1.128l-4.06 1.277a.375.375 0 0 1-.475-.474l1.277-4.06a4.5 4.5 0 0 1 1.128-1.89L16.862 3.487z" />
                                                             </svg>
-
-                                                        </Link>
-                                                        <i class="bx bx-trash delete-icon" data-db @click.prevent="removeRecord(file.id, $event)"></i>
-
+                                                            </Link>
+                                                            <i class="bx bx-trash delete-icon cursor-pointer text-red-500" @click.prevent="removeRecord(item.id, 'aparats', $event)"></i>
+                                                        </div>
                                                      </td>
                                                 </tr>
                                                 </tbody>

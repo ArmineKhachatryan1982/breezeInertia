@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
 {
-    public function index(Request $request)
+    public function __invoke(Request $request)
     {
         dd(44);
 

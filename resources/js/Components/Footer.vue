@@ -8,9 +8,23 @@ const form = useForm({
    email: '',
 })
 
-const submit = () => {
-  form.post('/users')
-}
+
+const submitForm = () => {
+  
+    form.post(route('/subscriber'), {
+        onSuccess: () => {
+            //es elchi ashxatum
+            if (usePage().props.flash?.success) {
+                    alert(usePage().props.flash.success);
+           }
+
+            form.reset(); // очищает все поля формы
+             alert("Аппарат успешно создан!")
+
+        },
+    });
+
+};
 </script>
 <template>
     <footer>
@@ -28,10 +42,14 @@ const submit = () => {
 							<h3 class="mb-2.5 capitalize md:text-2xl text-xl font-bold font-nunito text-black">Подпишитесь на нашу рассылку</h3>
 							<p class="text-black capitalize mb-5 text-sm leading-6 tracking-tight">Если у вас есть вопросы, вы можете связаться с нами, чтобы мы могли дать вам удовлетворительный ответ. Подпишитесь на нашу рассылку, чтобы получать наши последние продукты.</p>
 							<div class="subscribe-form mb-5">
-								<form class="dzSubscribe" action="assets/script/mailchamp.php" method="post">
+								<form class="dzSubscribe"
+                                      @submit.prevent="submitForm"
+                                       action="assets/script/mailchamp.php" method="post">
 									<div class="dzSubscribeMsg"></div>
 									<div class="w-full relative flex flex-wrap items-stretch">
-										<input name="dzEmail" required="required" class="bg-transparent w-[1%] flex-auto outline-none py-2.5 px-5 mr-1.25 h-13.5 border-2 border-[#0000001a] rounded-3xl text-[15px] table-cell text-[#333] max-xl:mb-2.5 focus:bg-white" placeholder="Your Email Address" type="email">
+										<input
+                                           v-model="form.email"
+                                           name="dzEmail" required="required" class="bg-transparent w-[1%] flex-auto outline-none py-2.5 px-5 mr-1.25 h-13.5 border-2 border-[#0000001a] rounded-3xl text-[15px] table-cell text-[#333] max-xl:mb-2.5 focus:bg-white" placeholder="Your Email Address" type="email">
 										<span class="input-group-btn pl-2.5">
 											<button name="submit" id="submit" type="submit" class="site-button  bg-primary text-white rounded-full h-13.5">Подписаться</button>
 										</span>

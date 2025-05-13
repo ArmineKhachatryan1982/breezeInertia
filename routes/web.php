@@ -3,10 +3,12 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AparatController;
 use App\Http\Controllers\CategoriesFileController;
+use App\Http\Controllers\DeleteItemController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Service\ServiceDetailsController;
+use App\Http\Controllers\Subscriber\SubscriberController as SubscriberSubscriberController;
 use App\Http\Controllers\SubscriberController;
 use App\Models\ServiceDetails;
 use App\Services\FileUploadService;
@@ -74,8 +76,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/{id}',[AparatController::class, 'update'])->name('update');
     });
 });
-Route::get('delete-item/{tb_name}/{id}', [DeleteItemController::class, 'index'])->name('delete_item');
 
-
+Route::delete('delete-item/{tb_name}/{id}', [DeleteItemController::class, 'index'])->name('delete_item');
+Route::post('subscriber',SubscriberController::class);
 
 require __DIR__.'/auth.php';

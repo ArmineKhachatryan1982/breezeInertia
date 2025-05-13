@@ -10,7 +10,7 @@ class DeleteItemController extends Controller
     public function index($tb_name, $id)
     {
 
-   
+
          try {
 
             $delete = DeleteItemService::delete($tb_name, $id);
