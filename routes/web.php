@@ -78,6 +78,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 Route::delete('delete-item/{tb_name}/{id}', [DeleteItemController::class, 'index'])->name('delete_item');
-Route::post('subscriber',SubscriberController::class);
+Route::post('subscriber',SubscriberController::class)->name('subscriber');
 
 require __DIR__.'/auth.php';

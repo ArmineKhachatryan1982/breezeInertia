@@ -2,7 +2,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { router, useForm } from '@inertiajs/vue3'
+import { router, useForm, usePage } from '@inertiajs/vue3'
 
 const form = useForm({
    email: '',
@@ -10,16 +10,27 @@ const form = useForm({
 
 
 const submitForm = () => {
-  
-    form.post(route('/subscriber'), {
+
+    form.post(route('subscriber'), {
         onSuccess: () => {
-            //es elchi ashxatum
-            if (usePage().props.flash?.success) {
-                    alert(usePage().props.flash.success);
-           }
+            // I register  in  HandleInertiaRequests
+            const flashMessage = usePage().props.flash?.success;
+            const status = usePage().props.flash?.status;
+
+             const msgContainer = document.querySelector('.dzSubscribeMsg');
+            if (flashMessage && msgContainer) {
+                const alertType = status ? 'success' : 'danger';
+                msgContainer.innerHTML = `<div class="gen alert alert-${alertType}">${flashMessage}</div>`;
+                // Прокрутка к сообщению
+                msgContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Убрать сообщение через 10 секунд
+                setTimeout(() => {
+                    msgContainer.innerHTML = '';
+                },3000);
+            }
 
             form.reset(); // очищает все поля формы
-             alert("Аппарат успешно создан!")
 
         },
     });
@@ -44,19 +55,19 @@ const submitForm = () => {
 							<div class="subscribe-form mb-5">
 								<form class="dzSubscribe"
                                       @submit.prevent="submitForm"
-                                       action="assets/script/mailchamp.php" method="post">
+                                        method="post">
 									<div class="dzSubscribeMsg"></div>
 									<div class="w-full relative flex flex-wrap items-stretch">
 										<input
                                            v-model="form.email"
-                                           name="dzEmail" required="required" class="bg-transparent w-[1%] flex-auto outline-none py-2.5 px-5 mr-1.25 h-13.5 border-2 border-[#0000001a] rounded-3xl text-[15px] table-cell text-[#333] max-xl:mb-2.5 focus:bg-white" placeholder="Your Email Address" type="email">
+                                            required="required" class="bg-transparent w-[1%] flex-auto outline-none py-2.5 px-5 mr-1.25 h-13.5 border-2 border-[#0000001a] rounded-3xl text-[15px] table-cell text-[#333] max-xl:mb-2.5 focus:bg-white" placeholder="Your Email Address" type="email">
 										<span class="input-group-btn pl-2.5">
 											<button name="submit" id="submit" type="submit" class="site-button  bg-primary text-white rounded-full h-13.5">Подписаться</button>
 										</span>
 									</div>
 								</form>
 							</div>
-							<ul class="flex gap-2 flex justify-center">
+							<!-- <ul class="flex gap-2 flex justify-center">
 								<li>
 									<a target="_blank" href="https://www.facebook.com/" class="site-button bg-[#3B5998] hover:bg-[#3B5998] rounded-full size-4.75 leading-[39px] flex items-center justify-center">
 									<i class="fa-brands fa-facebook-f"></i></a>
@@ -76,7 +87,7 @@ const submitForm = () => {
 								<li>
 									<a target="_blank" href="https://x.com/" class="site-button bg-black hover:bg-[#555] rounded-full size-4.75 leading-[39px] flex items-center justify-center"><i class="fa-brands fa-x-twitter"></i></a>
 								</li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
@@ -93,7 +104,7 @@ const submitForm = () => {
 						<span class="current-year text-sm">2025</span>
 						<a href="https://dexignzone.com/" class="text-sm text-black opacity-70 font-semibold hover:text-primary hover:duration-500 duration-500" target="_blank">DexignZone</a>
 					</div>
-					<div class="sm:col-span-6 col-span-12 text-center md:text-right">
+					<!-- <div class="sm:col-span-6 col-span-12 text-center md:text-right">
 						<ul>
 							<li class="inline-block pl-[3px] relative pr-3.75 after:content-['/'] after:absolute after:right-0">
 								<a class="text-sm text-black opacity-70" href="contact.html">Help Desk</a>
@@ -102,7 +113,7 @@ const submitForm = () => {
 								<a class="text-sm text-black opacity-70 hover:text-primary duration-500" href="contact.html">Privacy Policy</a>
 							</li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
