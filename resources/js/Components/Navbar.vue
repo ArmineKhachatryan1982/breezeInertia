@@ -3,6 +3,7 @@
 import { Link } from '@inertiajs/vue3';
 
 </script>
+
 <template>
     <!-- Preloader Start -->
 	<!-- <div id="loading-area"></div> -->
@@ -160,6 +161,7 @@ import { Link } from '@inertiajs/vue3';
 		</div>
 		<!-- main header END -->
 	</header>
+     
 	<!-- header end -->
 
 	<!-- Content Start -->

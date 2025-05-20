@@ -66,12 +66,19 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
         {{-- template script end --}}
+        <link rel="stylesheet" href="{{ asset('assets/icons/fontawesome/css/all.min.css') }}">
+
 
         <!-- Scripts -->
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
     </head>
+    <style>
+    .DZ-bt-buy-now .DZ-theme-btn {
+    display: none !important;
+}
+    </style>
     <body class="font-sans antialiased">
         @inertia
         {{-- template script start --}}
@@ -99,6 +106,23 @@
             <script src="{{ asset('assets/vendor/flatpickr-master/js/flatpickr.js') }}"></script>
             <script src="{{ asset('assets/vendor/nice-select/jquery.nice-select.js') }}"></script>
             <script src="{{ asset('assets/vendor/smart_wizard/jquery.smartWizard.js') }}"></script>
+        <!-- Call Icon Button -->
+
+
+        {{-- <div   class="fixed bottom-12 right-5 z-[9999]">
+            <a href="https://wa.me/79253759998"
+            target="_blank"
+            class="site-button-secondry w-[60px] h-[60px] rounded-full flex items-center justify-center text-white  shadow-lgtransition hover:bg-[#0096b4]"
+            >
+                <i class="fa-solid fa-phone text-xl"></i>
+            </a>
+        </div> --}}
+        <div  style="position: fixed; bottom: 50px; right: 20px; z-index: 9999;">
+    <a href="https://wa.me/79253759998" target="_blank"
+       class="site-button-secondry w-[60px] h-[60px] rounded-full flex items-center justify-center text-white shadow-lg transition hover:bg-[#0096b4]">
+        <i class="fa-solid fa-phone text-xl"></i>
+    </a>
+</div>
 
     </body>
 </html>
