@@ -98,7 +98,7 @@ const submitForm = () => {
 		<!-- section footer bottom start -->
 		<div class="py-6.25 bg-[#f9e8f9]">
 			<div class="container">
-				<div class="grid grid-cols-12">
+				<div class="grid grid-cols-12" >
 					<div class="sm:col-span-6 col-span-12 text-center md:text-left">
 						<span class="opacity-70 text-sm  text-black capitalize">Copyright ©</span>
 						<span class="current-year text-sm">2025</span>

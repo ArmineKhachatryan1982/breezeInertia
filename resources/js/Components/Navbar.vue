@@ -161,7 +161,7 @@ import { Link } from '@inertiajs/vue3';
 		</div>
 		<!-- main header END -->
 	</header>
-     
+
 	<!-- header end -->
 
 	<!-- Content Start -->

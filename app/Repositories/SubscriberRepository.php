@@ -10,4 +10,9 @@ class SubscriberRepository extends StoreRepository implements SubscriberInterfac
     {
         parent::__construct($model);
     }
+    
+     public function existsByEmail(string $email): bool
+    {
+        return $this->model->where('email', $email)->exists();
+    }
 }
