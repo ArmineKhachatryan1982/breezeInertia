@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AparatController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\CategoriesFileController;
+use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\DeleteItemController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -54,7 +56,7 @@ Route::get('/',[ FrontendController::class,'index' ])->name('home');
 Route::get('/booking',[ FrontendController::class,'booking' ])->name('booking');
 Route::get('/services',[ ServiceController::class,'index'])->name('services');
 Route::get('/servise-details/{id}',[ServiceDetailsController::class,'show'])->name('service-details');
-Route::post('/subscriber',[SubscriberController::class,'index'])->name('subscriber');
+Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 Route::get('upload_file',[CategoriesFileController::class,'index'])->name('upload_file');
 Route::post('category_file',[CategoriesFileController::class,'store'])->name('category_file');
@@ -75,6 +77,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('edit/{model}',[AparatController::class, 'edit'])->name('edit');
         Route::post('/{id}',[AparatController::class, 'update'])->name('update');
     });
+     Route::prefix('contact')->name('contact.')->group(function () {
+
+        Route::get('list', [AdminContactController::class, 'index'])->name('list');
+        Route::get('create', [AdminContactController::class, 'create'])->name('create');
+        Route::post('store', [AdminContactController::class, 'store'])->name('store');
+        Route::get('edit/{model}',[AdminContactController::class, 'edit'])->name('edit');
+        Route::post('/{id}',[AdminContactController::class, 'update'])->name('update');
+    });
+
 });
 
 Route::delete('delete-item/{tb_name}/{id}', [DeleteItemController::class, 'index'])->name('delete_item');

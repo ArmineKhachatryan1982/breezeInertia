@@ -104,31 +104,21 @@ import { Link } from '@inertiajs/vue3';
 									<li class="relative"><a href="index-6.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear   hover:bg-[#F2F2F2] hover:text-primary">Home 6</a></li>
 								</ul> -->
 							</li>
-							<!-- <li class="collapse-btn1 max-lg:border-b max-lg:border-[rgb(213_204_204)] uppercase relative group">
-							<a href="javascript:void(0);" class="text-[15px] lg:py-7.5 lg:px-3 font-semibold text-black  inline-block max-lg:py-2.5 max-lg:px-3.75 lg:group-hover:text-primary duration-500 max-lg:flex max-lg:justify-between max-lg:items-center">Pages<i class="!text-[9px] ml-[3px] mt-[-3px] align-middle fa fa-chevron-down "></i></a>
-								<ul class="dropdown-item hidden lg:block bg-white border-t border-primary lg:left-0 lg:opacity-0 lg:py-2.5 lg:absolute lg:invisible lg:w-[220px] z-10  lg:shadow-[0_0_40px_rgba(0,_0,_0,_.2)] lg:group-hover:visible max-lg:bg-[#f6f6f6] lg:group-hover:opacity-100 lg:group-hover:mt-0 duration-500 text-left">
-									<li class="relative"><a href="about-us.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">About Us</a></li>
-									<li class="relative"><a href="booking.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Booking</a></li>
-									<li class="relative"><a href="team.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear   hover:bg-[#F2F2F2] hover:text-primary">Our Team</a></li>
-									<li class="relative"><a href="under-maintenance.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Under Maintenance</a></li>
-									<li class="relative"><a href="magnific-popup.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Magnific Gallery</a></li>
-									<li class="relative"><a href="light-box.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Light Gallery</a></li>
-									<li class="relative"><a href="coming-soon.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Coming Soon</a></li>
-									<li class="relative"><a href="error-404.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Error 404</a></li>
-									<li class="relative"><a href="login.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Login</a></li>
-									<li class="relative"><a href="register.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Register</a></li>
-									<li class="relative"><a href="contact.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Contact Us</a></li>
-								</ul>
-							</li> -->
+
 							<li class="collapse-btn1 max-lg:border-b max-lg:border-[rgb(213_204_204)] uppercase relative group">
-							<a href="javascript:void(0);" class="text-[15px] lg:py-7.5 lg:px-3 font-semibold text-black  inline-block max-lg:py-2.5 max-lg:px-3.75 lg:group-hover:text-primary duration-500 max-lg:flex max-lg:justify-between max-lg:items-center">Наши услуги<i class="ml-1.25 mt-[-3px] align-middle fa fa-chevron-down !text-[9px]"></i></a>
+							   <a href="javascript:void(0);" class="text-[15px] lg:py-7.5 lg:px-3 font-semibold text-black  inline-block max-lg:py-2.5 max-lg:px-3.75 lg:group-hover:text-primary duration-500 max-lg:flex max-lg:justify-between max-lg:items-center">Наши услуги<i class="ml-1.25 mt-[-3px] align-middle fa fa-chevron-down !text-[9px]"></i></a>
 								<ul class="dropdown-item hidden lg:block bg-white border-t border-primary lg:left-0 lg:opacity-0 lg:py-2.5 lg:absolute lg:invisible lg:w-[220px] z-10  lg:shadow-[0_0_40px_rgba(0,_0,_0,_.2)] lg:group-hover:visible max-lg:bg-[#f6f6f6] lg:group-hover:opacity-100 lg:group-hover:mt-0 duration-500 text-left">
 									<li class="relative">
                                         <Link :href = "route('services')" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary" >Услуги</Link>
-
                                         </li>
-									<!-- <li class="relative"><a href="services-details.html" class="text-[#505050] block text-sm py-2 px-5 capitalize duration-150 font-montserrat font-medium ease-linear hover:bg-[#F2F2F2] hover:text-primary">Services Details</a></li> -->
+
+
 								</ul>
+							</li>
+
+                            <li class="collapse-btn1 max-lg:border-b max-lg:border-[rgb(213_204_204)] uppercase relative group">
+                                <Link :href="route('contact')" class="text-[15px] lg:py-7.5 lg:px-3 font-semibold text-black  inline-block max-lg:py-2.5 max-lg:px-3.75 lg:group-hover:text-primary duration-500 max-lg:flex max-lg:justify-between max-lg:items-center">Контакты</Link>
+                               
 							</li>
 						</ul>
 						<ul class="lg:flex lg:justify-between lg:w-[35%]">
@@ -161,7 +151,7 @@ import { Link } from '@inertiajs/vue3';
 		</div>
 		<!-- main header END -->
 	</header>
-     
+
 	<!-- header end -->
 
 	<!-- Content Start -->
