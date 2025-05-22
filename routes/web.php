@@ -84,6 +84,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('store', [AdminContactController::class, 'store'])->name('store');
         Route::get('edit/{model}',[AdminContactController::class, 'edit'])->name('edit');
         Route::post('/{id}',[AdminContactController::class, 'update'])->name('update');
+        // ============================
     });
 
 });
