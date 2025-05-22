@@ -75,10 +75,11 @@
         @inertiaHead
     </head>
     <style>
-    .DZ-bt-buy-now .DZ-theme-btn {
-    display: none !important;
-}
-    </style>
+    .DZ-bt-buy-now,
+    .DZ-bt-support-now {
+        display: none !important;
+    }
+</style>
     <body class="font-sans antialiased">
         @inertia
         {{-- template script start --}}
@@ -109,20 +110,30 @@
         <!-- Call Icon Button -->
 
 
-        {{-- <div   class="fixed bottom-12 right-5 z-[9999]">
-            <a href="https://wa.me/79253759998"
-            target="_blank"
-            class="site-button-secondry w-[60px] h-[60px] rounded-full flex items-center justify-center text-white  shadow-lgtransition hover:bg-[#0096b4]"
-            >
+
+        <div  style="position: fixed; bottom: 50px; right: 20px; z-index: 9999;">
+            <a href="https://wa.me/79253759998" target="_blank"
+            class="site-button-secondry w-[60px] h-[60px] rounded-full flex items-center justify-center text-white shadow-lg transition hover:bg-[#0096b4]">
                 <i class="fa-solid fa-phone text-xl"></i>
             </a>
-        </div> --}}
-        <div  style="position: fixed; bottom: 50px; right: 20px; z-index: 9999;">
-    <a href="https://wa.me/79253759998" target="_blank"
-       class="site-button-secondry w-[60px] h-[60px] rounded-full flex items-center justify-center text-white shadow-lg transition hover:bg-[#0096b4]">
-        <i class="fa-solid fa-phone text-xl"></i>
-    </a>
-</div>
+        </div>
+        <script>
+//     function hideButtons() {
+//     const buyBtn = document.querySelector('.DZ-bt-buy-now');
+//     const supportBtn = document.querySelector('.DZ-bt-support-now');
+
+//     if (buyBtn) buyBtn.style.display = 'none';
+//     if (supportBtn) supportBtn.style.display = 'none';
+
+//     // Повторно проверяем, пока не появятся
+//     if (!buyBtn || !supportBtn) {
+//         setTimeout(hideButtons, 100);
+//     }
+// }
+
+// // Запускаем скрытие при загрузке
+// hideButtons();
+</script>
 
     </body>
 </html>
