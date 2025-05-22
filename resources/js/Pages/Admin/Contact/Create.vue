@@ -41,8 +41,7 @@ const submitForm = () => {
            }
 
             form.reset(); // очищает все поля формы
-             alert("Аппарат успешно создан!")
-
+            
         },
     });
 
@@ -79,19 +78,19 @@ onMounted(() => {
                                                 <h4 class="font-bold font-nunito text-black text-[25px]/[35px]"></h4>
                                                 <!-- <p class="mb-4">If you have an account with us, please log in.</p> -->
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Title *</label>
+                                                    <label class="font-bold mb-2.5 inline-block">Adress *</label>
                                                     <input
                                                       type="text"
-                                                      v-model="form.title"
+                                                      v-model="form.address"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Title" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="salon address" >
                                                 </div>
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Description </label>
+                                                    <label class="font-bold mb-2.5 inline-block">Map </label>
                                                     <textarea
                                                       v-model="form.map"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Your Email Id" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="address map" >
                                                     </textarea>
                                                 </div>
                                                 <div class="mb-6.25">
@@ -99,8 +98,7 @@ onMounted(() => {
                                                     <input
                                                        type="file"
                                                        @change="handleFileUpload"
-
-                                                     required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
+                                                       required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
                                                 </div>
                                                 <div class="text-left">
                                                     <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">send</button>

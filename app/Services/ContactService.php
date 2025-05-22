@@ -20,7 +20,8 @@ class  ContactService
         $files_array = $dto->file;
         $data = Arr::except($dto->toArray(), ['file']);
         $object = $this->contactRepository->create($data);
-        $get_file = $this->file_upload($files_array,"aparats",$object);
+
+        $get_file = $this->file_upload($files_array,"contacts",$object);
 
         return $object;
     }
@@ -49,7 +50,7 @@ class  ContactService
 
         foreach( $files_array as $fle){
             $path = FileUploadService::upload($fle,$folder."/".$object->id);
-            $object->image = $path;
+            $object->video = $path;
             $object->save();
 
         }

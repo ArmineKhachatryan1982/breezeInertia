@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DTO\ContactDto;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Services\ContactService;
@@ -30,32 +31,32 @@ class ContactController extends Controller
 
     public function store(Request $request){
 
-        $data = $this->service->store(AparatDto::fromRequestDto($request));
+        $data = $this->service->store(ContactDto::fromRequestDto($request));
 
         if($data){ // chi ashxatum
-             return redirect()->back()->with('success', 'Аппарат успешно создан!');
+             return redirect()->back()->with('success', 'Контакт успешно создан!');
 
         }
         return redirect()->back()->with('error', 'Произошла ошибка при создании!');
     }
     public function edit(Contact $model){
         $files=[];
-        if($model->image!=null){
-            $files[0]['path'] = asset('storage/' . $model->image);
+        if($model->video!=null){
+            $files[0]['path'] = asset('storage/' . $model->video);
             $files[0]['id'] = $model->id;
         }
 
 
 
         return Inertia::render('Admin/Contact/Edit',[
-            'aparat' => $model,
+            'contact' => $model,
             "files" => $files,
         ]);
 
     }
     public function update(Request $request, $id){
 
-        $model = $this->service->update($id,AparatDto::fromRequestDto($request));
+        $model = $this->service->update($id,ContactDto::fromRequestDto($request));
 
 
     }

@@ -3,8 +3,10 @@
     import { onMounted,ref, watch , computed } from 'vue';
     import Admin from '../Admin.vue';
 
+    const appUrl = import.meta.env.VITE_APP_URL;
+
     const previewUrls = ref([]);
-    const { aparat,files } = usePage().props;
+    const { contact,files } = usePage().props;
     if(files.length>0){
         // console.log(files, 5456)
 
@@ -17,8 +19,8 @@
 
     }
     const form = useForm({
-                    title: aparat.title,
-                    description: aparat.description,
+                    address: contact.address,
+                    map: contact.map,
                     file: []
 
                 })
@@ -46,13 +48,11 @@ const handleFileUpload = (event) => {
 
 const submitForm = () => {
 
-    form.post(route('admin.aparat.update',{ id:aparat.id }),{
+    form.post(route('admin.contact.update',{ id:contact.id }),{
         onSuccess: () => {
-            alert();
-            //es elchi ashxatum
-        //     if (usePage().props.flash?.success) {
-        //             alert(usePage().props.flash.success);
-        //    }
+            if (usePage().props.flash?.success) {
+                    alert(usePage().props.flash.success);
+           }
 
 
         },
@@ -63,7 +63,7 @@ const isImage = (file) => {
 //     // alert(1111)
     console.log(file,'2222')
     // console.log(file.name,'2223')
-  const imageFormats = ['jpg', 'jpeg', 'png','PNG', 'gif', 'bmp', 'svg'];
+//   const imageFormats = ['jpg', 'jpeg', 'png','PNG', 'gif', 'bmp', 'svg'];
 //   const fileExtension = file.name.split('.').pop().toLowerCase();
 
 //   return imageFormats.includes(fileExtension);
@@ -93,27 +93,30 @@ return true;
         <template #aparat_content>
             <div class="lg:max-w-[500px] md:mb-7.5">
                                     <div class="p-7.5 border border-[#dfdfdf] seth ">
-                                        <div class="flex tab-content nav" x-data="{ tab: 'login' }">
+                                        <div class="flex tab-content nav">
                                             <form
                                                @submit.prevent="submitForm"
                                                class="w-full" x-show="tab == 'login'" x-transition:enter="transition-all duration-700 easy-in-out" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                                                 <h4 class="font-bold font-nunito text-black text-[25px]/[35px]"></h4>
                                                 <!-- <p class="mb-4">If you have an account with us, please log in.</p> -->
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Title *</label>
+                                                    <label class="font-bold mb-2.5 inline-block">Адрес *</label>
                                                     <input
                                                       type="text"
-                                                      v-model="form.title"
+                                                      v-model="form.address"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Title" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес" >
                                                 </div>
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Description </label>
+                                                    <label class="font-bold mb-2.5 inline-block">Карта </label>
                                                     <textarea
-                                                      v-model="form.description"
+                                                      v-model="form.map"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Your Email Id" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Карта" >
                                                     </textarea>
+                                                </div>
+                                                <div class="mt-4 w-[300px] h-[200px] overflow-hidden border">
+                                                <div v-html="form.map"></div>
                                                 </div>
                                                 <div class="mb-6.25">
                                                     <label class="font-bold mb-2.5 inline-block">Upload file*</label>
@@ -126,9 +129,11 @@ return true;
                                                <div v-if="previewUrls.length>0">
                                                 <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
                                                             <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                                <img :src="file.url" class="preview-img">
-
-
+                                                                <!-- <img :src="file.url" class="preview-img"> -->
+                                                                <video width="200" height="200" controls>
+                                                                    <source :src="file.url" type="video/mp4">
+                                                                        Ваш браузер не поддерживает воспроизведение видео.
+                                                                </video>
                                                             </div>
                                                             </div>
 
