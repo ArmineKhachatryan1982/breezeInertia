@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('address');
             $table->string('video')->nullable();
-            $table->string('map')->nullable();
+            $table->longText('map')->nullable();
             $table->timestamps();
         });
     }

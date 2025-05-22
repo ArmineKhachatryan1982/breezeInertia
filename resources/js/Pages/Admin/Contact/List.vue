@@ -45,7 +45,7 @@
             <div class="lg:max-w-[700px] md:mb-7.5">
                                     <div class="p-7.5 border border-[#dfdfdf] seth ">
                                         <div class="text-right m-2">
-                                            <Link :href="route('admin.aparat.create')" class="site-button bg-primary text-white rounded-full h-13.5">Создать</Link>
+                                            <Link :href="route('admin.contact.create')" class="site-button bg-primary text-white rounded-full h-13.5">Создать</Link>
                                         </div>
 
                                         <div class="flex tab-content nav" >

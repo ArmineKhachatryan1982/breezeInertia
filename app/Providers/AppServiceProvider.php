@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use App\Interface\AparatInterface;
 use App\Interface\BaseInterface;
+use App\Interface\ContactInterface;
 use App\Interface\ServiceDetailsInterface;
 use App\Interface\StoreInterface;
 use App\Interface\SubscriberInterface;
 use App\Repositories\AparatRepository;
+use App\Repositories\ContactRepository;
 use App\Repositories\Eloquent\BaseRepository;
 use App\Repositories\ServiceDetailsRepository;
 use App\Repositories\StoreRepository;
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(BaseInterface::class, BaseRepository::class);
         $this->app->bind(AparatInterface::class, AparatRepository::class);
         $this->app->bind(SubscriberInterface::class,SubscriberRepository::class);
+        $this->app->bind(ContactInterface::class,ContactRepository::class);
 
 
     }

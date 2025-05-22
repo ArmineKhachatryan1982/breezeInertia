@@ -118,7 +118,7 @@ import { Link } from '@inertiajs/vue3';
 
                             <li class="collapse-btn1 max-lg:border-b max-lg:border-[rgb(213_204_204)] uppercase relative group">
                                 <Link :href="route('contact')" class="text-[15px] lg:py-7.5 lg:px-3 font-semibold text-black  inline-block max-lg:py-2.5 max-lg:px-3.75 lg:group-hover:text-primary duration-500 max-lg:flex max-lg:justify-between max-lg:items-center">Контакты</Link>
-                               
+
 							</li>
 						</ul>
 						<ul class="lg:flex lg:justify-between lg:w-[35%]">

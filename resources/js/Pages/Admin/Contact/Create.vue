@@ -8,8 +8,8 @@
 
 
     const form = useForm({
-                    title: '',
-                    description: '',
+                    address: '',
+                    map:"",
                     file: []
 
                 })
@@ -33,7 +33,7 @@ const handleFileUpload = (event) => {
 
 const submitForm = () => {
 
-    form.post(route('admin.aparat.store'), {
+    form.post(route('admin.contact.store'), {
         onSuccess: () => {
             //es elchi ashxatum
             if (usePage().props.flash?.success) {
@@ -89,7 +89,7 @@ onMounted(() => {
                                                 <div class="mb-4">
                                                     <label class="font-bold mb-2.5 inline-block">Description </label>
                                                     <textarea
-                                                      v-model="form.description"
+                                                      v-model="form.map"
                                                       required=""
                                                       class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Your Email Id" >
                                                     </textarea>
