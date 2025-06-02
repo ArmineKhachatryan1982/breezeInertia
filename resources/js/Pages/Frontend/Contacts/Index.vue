@@ -57,7 +57,7 @@
 									</div>
 									<div class="overflow-hidden">
 										<h6 class="text-lg text-black font-bold uppercase font-nunito">ТЕЛЕФОН</h6>
-										<p class="leading-6">+91 987 654 3210</p>
+										<p class="leading-6">{{contact.phone_number}}</p>
 									</div>
 								</li>
 							</ul>
@@ -69,7 +69,7 @@
 					<!-- Left part start -->
 					<div class="xl:col-span-4 lg:col-span-6 col-span-12 mb-7.5">
 						<div class="p-7.5 border border-[#e1e6eb] clearfix">
-							<h4 class="mb-2.5 text-[28px]/[35px] font-bold text-black font-nunito">Send Message Us</h4>
+							<h4 class="mb-2.5 text-[28px]/[35px] font-bold text-black font-nunito">Как добраться</h4>
 							<div class="dzFormMsg"></div>
                             <video  width=300px height=300px controls>
                                 <source :src="`/storage/${contact.video}`" type="video/mp4">

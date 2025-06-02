@@ -37,6 +37,7 @@ class  ContactService
 
         }
         $data = Arr::except($dto->toArray(), ['file']);
+     
         return $this->contactRepository->update($id, $data);
     }
 

@@ -62,6 +62,7 @@
                                                 <tr>
                                                     <th class="border border-gray-400 px-4 py-2">Номер</th>
                                                     <th class="border border-gray-400 px-4 py-2">Адрес</th>
+                                                    <th class="border border-gray-400 px-4 py-2">Номер телефона</th>
                                                     <th class="border border-gray-400 px-4 py-2">Карта</th>
                                                     <th class="border border-gray-400 px-4 py-2">Видео</th>
                                                     <th class="border border-gray-400 px-4 py-2">Действие</th>
@@ -71,6 +72,7 @@
                                                 <tr v-for="(item, index) in data" :key="index" :data-id="item.id" >
                                                     <td class="border border-gray-400 px-4 py-2">{{++index}}</td>
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.address }}</td>
+                                                    <td class="border border-gray-400 px-4 py-2">{{ item.phone_number }}</td>
                                                     <!-- <td class="border border-gray-400 px-4 py-2" v-html="item.map" style="width: 100px; height: 50px; overflow: hidden;"></td> -->
                                                     <td class="border border-gray-400 px-4 py-2">
                                                         <div class="w-[200px] h-[150px] overflow-hidden">
