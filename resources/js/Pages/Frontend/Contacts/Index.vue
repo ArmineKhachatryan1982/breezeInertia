@@ -68,9 +68,12 @@
 						<div class="p-7.5 border border-[#e1e6eb] clearfix">
 							<h4 class="mb-2.5 text-[28px]/[35px] font-bold text-black font-nunito">Как добраться</h4>
 							<div class="dzFormMsg"></div>
-                            <video  width=300px height=300px controls>
-                                <source :src="`/storage/${contact.video}`" type="video/mp4">
+                            <video v-if="contact.video" width="300" height="300" controls>
+                                <source :src="`/storage/${contact.video}`" type="video/mp4" />
+                                 <!-- <source :src="`${window.location.origin}/storage/${contact.video}`" type="video/mp4" /> -->
+                                Ваш браузер не поддерживает видео.
                             </video>
+                            <p v-else>Видео не загружено</p>
 
 
 

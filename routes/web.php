@@ -29,12 +29,12 @@ use Inertia\Inertia;
 // });
 Route::get('/clear-cache', function() {
 
-    $run = Artisan::call('config:clear');
-
-    $run = Artisan::call('cache:clear');
-
-    $run = Artisan::call('config:cache');
-    Artisan::call('migrate', ['--force' => true]); // Важно для продакшна
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('config:cache');
+    Artisan::call('migrate', ['--force' => true]);
+    Artisan::call('storage:link'); // ← создаёт симлинк для storage
 
 
     return 'FINISHED';
