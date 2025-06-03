@@ -9,6 +9,7 @@
 
     const form = useForm({
                     address: '',
+                    phone_number:'',
                     map:"",
                     file: []
 
@@ -41,27 +42,16 @@ const submitForm = () => {
            }
 
             form.reset(); // очищает все поля формы
-            
+
         },
     });
 
 };
-// chi ashxatum  woch watch voche l onmountedov
-// Получение flash-сообщения
-const flashSuccess = computed(() => usePage().props.flash?.success)
-
-watch(flashSuccess, (message) => {
-  if (message) {
-    console.log(message, 4448)
-    alert(message) // или toast
-  }
-})
 onMounted(() => {
   const success = usePage().props.flash?.success
   if (success) {
     alert(success)
-    // или console.log(success)
-    // или toast(success)
+
   }
 })
 
@@ -78,30 +68,38 @@ onMounted(() => {
                                                 <h4 class="font-bold font-nunito text-black text-[25px]/[35px]"></h4>
                                                 <!-- <p class="mb-4">If you have an account with us, please log in.</p> -->
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Adress *</label>
+                                                    <label class="font-bold mb-2.5 inline-block">Адрес *</label>
                                                     <input
                                                       type="text"
                                                       v-model="form.address"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="salon address" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес" >
                                                 </div>
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Map </label>
+                                                    <label class="font-bold mb-2.5 inline-block">Номер телефона *</label>
+                                                    <input
+                                                      type="text"
+                                                      v-model="form.phone_number"
+                                                      required=""
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Номер телефона" >
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label class="font-bold mb-2.5 inline-block">Адрес карты</label>
                                                     <textarea
                                                       v-model="form.map"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="address map" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес карты" >
                                                     </textarea>
                                                 </div>
                                                 <div class="mb-6.25">
-                                                    <label class="font-bold mb-2.5 inline-block">Upload file*</label>
+                                                    <label class="font-bold mb-2.5 inline-block">Загрузить файл*</label>
                                                     <input
                                                        type="file"
                                                        @change="handleFileUpload"
                                                        required="" class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
                                                 </div>
                                                 <div class="text-left">
-                                                    <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">send</button>
+                                                    <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">Сохранить</button>
                                                     <!-- <a @click.prevent="tab = 'forgot-password'" href="#forgot-password" class="ml-1.25 text-left text-primary hover:text-[#666] duration-500 "><i class="fa-solid fa-unlock"></i> Forgot Password</a> -->
                                                 </div>
                                             </form>

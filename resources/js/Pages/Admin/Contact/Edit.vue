@@ -20,6 +20,7 @@
     }
     const form = useForm({
                     address: contact.address,
+                    phone_number: contact.phone_number,
                     map: contact.map,
                     file: []
 
@@ -108,18 +109,26 @@ return true;
                                                       class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес" >
                                                 </div>
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Карта </label>
+                                                    <label class="font-bold mb-2.5 inline-block">Номер телефона </label>
+                                                    <input
+                                                      type="text"
+                                                      v-model="form.phone_number"
+                                                      required=""
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Номер телефона" >
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label class="font-bold mb-2.5 inline-block">Адрес карты </label>
                                                     <textarea
                                                       v-model="form.map"
                                                       required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Карта" >
+                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес карты" >
                                                     </textarea>
                                                 </div>
                                                 <div class="mt-4 w-[300px] h-[200px] overflow-hidden border">
                                                 <div v-html="form.map"></div>
                                                 </div>
                                                 <div class="mb-6.25">
-                                                    <label class="font-bold mb-2.5 inline-block">Upload file*</label>
+                                                    <label class="font-bold mb-2.5 inline-block">Загрузить файл*</label>
                                                     <input
                                                        type="file"
                                                        @change="handleFileUpload"

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->longText('address');
+            $table->longText('phone_number')->nullable();
             $table->string('video')->nullable();
             $table->longText('map')->nullable();
             $table->timestamps();
