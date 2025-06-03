@@ -9,9 +9,6 @@
     import ServiceDetailsSection from './ServiceDetailsSection.vue';
 
 
-
-
-
 </script>
 <template>
  <Head title="Контакты"/>
