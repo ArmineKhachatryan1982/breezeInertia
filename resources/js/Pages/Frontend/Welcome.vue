@@ -7,7 +7,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
 
  const props = usePage().props;
 //  console.log(props.categories)
-//  console.log(props.aparat)
+ console.log(props.aparat?.[0]?.aparat_image)
 
  const selectCategory = (category) => {
     router.get('/services', { category_id: category.id });
@@ -167,11 +167,13 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                     :key="aparat.id"
                     class="flex flex-col items-center bg-gray-100 p-3 rounded-lg shadow-md"
                     >
+
                     <img
-                        :src="'/storage/' + aparat.image"
+                        :src="aparat.aparat_image"
                         alt="Фото аппарата"
                         class="w-52 h-60 object-cover"
                     />
+                  
                     <span class="mt-2 text-gray-700 font-semibold">{{ aparat.title }}</span>
                     <span class="mt-2 text-gray-700 font-semibold">{{ aparat.description }}</span>
                     </div>

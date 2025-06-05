@@ -83,7 +83,7 @@
 
                                                     <td class="border border-gray-400 px-4 py-2">
                                                         <video width="200" height="200" controls>
-                                                            <source :src="appUrl + '/storage/' + item.video" type="video/mp4">
+                                                            <source :src="item.video_url" type="video/mp4">
                                                             Ваш браузер не поддерживает воспроизведение видео.
                                                             </video>
 

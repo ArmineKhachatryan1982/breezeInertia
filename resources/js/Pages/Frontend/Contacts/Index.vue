@@ -7,6 +7,8 @@
     import { Head } from '@inertiajs/vue3';
     const props = usePage().props;
 
+     console.log(props.data?.[0]?.video_url)
+
 
 
 
@@ -38,17 +40,7 @@
 										<p class="leading-6">{{contact.address}}</p>
 									</div>
 								</li>
-								<!-- <li class="relative left mb-7.5">
-									<div class="float-left mr-5 border border-[#eee] size-4.75 ml-auto table text-center rounded-[3px]">
-										<span class="table-cell align-middle text-primary">
-											<i class="text-xl ti-email"></i>
-										</span>
-									</div>
-									<div class="overflow-hidden">
-										<h6 class="text-lg text-black font-bold uppercase font-nunito">Email:</h6>
-										<p class="leading-6">info@example.com</p>
-									</div>
-								</li> -->
+
 								<li class="relative left ">
 									<div class="float-left mr-5 border border-[#eee] size-4.75 ml-auto table text-center rounded-[3px]">
 										<span class="table-cell align-middle text-primary">
@@ -72,7 +64,8 @@
 							<h4 class="mb-2.5 text-[28px]/[35px] font-bold text-black font-nunito">Как добраться</h4>
 							<div class="dzFormMsg"></div>
                             <video  width=300px height=300px controls>
-                                <source :src="`/storage/${contact.video}`" type="video/mp4">
+                                <source :src="contact.video_url" type="video/mp4">
+
                             </video>
 
 

@@ -67,7 +67,8 @@
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.title }}</td>
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.description }}</td>
                                                     <td class="border border-gray-400 px-4 py-2">
-                                                    <img :src="appUrl +'/storage/' + item.image" alt="image" class="w-20 h-20 object-cover" />
+                                                       <!-- <img :src="appUrl +'/storage/' + item.image" alt="image" class="w-20 h-20 object-cover" /> -->
+                                                       <img :src=" item.aparat_image" alt="image" class="w-20 h-20 object-cover" />
                                                     </td>
                                                      <td class="border border-gray-400 px-4 py-2 ">
                                                         <div class="flex justify-between items-center space-x-4">

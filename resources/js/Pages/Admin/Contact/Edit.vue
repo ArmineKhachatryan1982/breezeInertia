@@ -140,7 +140,7 @@ return true;
                                                             <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
                                                                 <!-- <img :src="file.url" class="preview-img"> -->
                                                                 <video width="200" height="200" controls>
-                                                                    <source :src="file.url" type="video/mp4">
+                                                                    <source :src="file.video_url" type="video/mp4">
                                                                         Ваш браузер не поддерживает воспроизведение видео.
                                                                 </video>
                                                             </div>

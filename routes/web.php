@@ -30,10 +30,9 @@ use Inertia\Inertia;
 Route::get('/clear-cache', function() {
 
     $run = Artisan::call('config:clear');
-
     $run = Artisan::call('cache:clear');
-
     $run = Artisan::call('config:cache');
+    $run = Artisan::call('storage:link');
     Artisan::call('migrate', ['--force' => true]); // Важно для продакшна
 
 
