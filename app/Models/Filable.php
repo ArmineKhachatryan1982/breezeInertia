@@ -15,4 +15,9 @@ class Filable extends Model
         return $this->morphTo();
 
     }
+
+    // public function getPathAttribute()
+    // {
+    //     return asset('storage/'. $this->path);
+    // }
 }

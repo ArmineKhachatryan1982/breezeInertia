@@ -13,4 +13,6 @@ class ServiceDetails extends Model
     {
         return $this->morphMany(Filable::class, 'filable', 'filable_type', 'filable_id');
     }
+
+
 }

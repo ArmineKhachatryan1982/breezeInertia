@@ -6,8 +6,10 @@
     const appUrl = import.meta.env.VITE_APP_URL;
 
     const previewUrls = ref([]);
-    const { contact,files } = usePage().props;
-    if(files.length>0){
+    const { model,categories,files } = usePage().props;
+    console.log(categories)
+
+    if(files?.length>0){
         // console.log(files, 5456)
 
        previewUrls.value = files.map(file => ({
@@ -18,10 +20,12 @@
 
 
     }
+    console.log(previewUrls)
+
     const form = useForm({
-                    address: contact.address,
-                    phone_number: contact.phone_number,
-                    map: contact.map,
+                    category_id: model.category_id,
+                    title: model.title,
+                    description: model.description,
                     file: []
 
                 })
@@ -49,7 +53,7 @@ const handleFileUpload = (event) => {
 
 const submitForm = () => {
 
-    form.post(route('admin.contact.update',{ id:contact.id }),{
+    form.post(route('admin.service_details.update',{ id:contact.id }),{
         onSuccess: () => {
             if (usePage().props.flash?.success) {
                     alert(usePage().props.flash.success);
@@ -100,33 +104,34 @@ return true;
                                                class="w-full" x-show="tab == 'login'" x-transition:enter="transition-all duration-700 easy-in-out" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                                                 <h4 class="font-bold font-nunito text-black text-[25px]/[35px]"></h4>
                                                 <!-- <p class="mb-4">If you have an account with us, please log in.</p> -->
+                                                 <div class="mb-4">
+                                                    <select v-model="form.category_id"
+                                                      class = "mb-5 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                     >
+                                                        <option v-for="category in categories.data" :key="category.id" :value="category.id">
+                                                            {{ category.name }}
+                                                        </option>
+                                                    </select>
+                                                </div>
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Адрес *</label>
+                                                    <label class="font-bold mb-2.5 inline-block">Заголовок *</label>
                                                     <input
                                                       type="text"
-                                                      v-model="form.address"
+                                                      v-model="form.title"
                                                       required=""
                                                       class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес" >
                                                 </div>
                                                 <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Номер телефона </label>
-                                                    <input
+                                                    <label class="font-bold mb-2.5 inline-block">Описание </label>
+                                                    <textarea
                                                       type="text"
-                                                      v-model="form.phone_number"
+                                                      v-model="form.description"
                                                       required=""
                                                       class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Номер телефона" >
+                                                      </textarea>
                                                 </div>
-                                                <div class="mb-4">
-                                                    <label class="font-bold mb-2.5 inline-block">Адрес карты </label>
-                                                    <textarea
-                                                      v-model="form.map"
-                                                      required=""
-                                                      class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white" placeholder="Адрес карты" >
-                                                    </textarea>
-                                                </div>
-                                                <div class="mt-4 w-[300px] h-[200px] overflow-hidden border">
-                                                <div v-html="form.map"></div>
-                                                </div>
+
+
                                                 <div class="mb-6.25">
                                                     <label class="font-bold mb-2.5 inline-block">Загрузить файл*</label>
                                                     <input
@@ -139,10 +144,11 @@ return true;
                                                 <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
                                                             <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
                                                                 <!-- <img :src="file.url" class="preview-img"> -->
-                                                                <video width="200" height="200" controls>
-                                                                    <source :src="file.video_url" type="video/mp4">
-                                                                        Ваш браузер не поддерживает воспроизведение видео.
-                                                                </video>
+                                                                 <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
+                                                                <!-- <img :src="file.get_path" class="preview-img"> -->
+
+
+                                                            </div>
                                                             </div>
                                                             </div>
 

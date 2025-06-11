@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\DTO\ServiceDetailsDto;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
 use App\Models\ServiceDetails;
 use App\Services\ServiceDetailsService;
 use Illuminate\Http\Request;
@@ -34,7 +36,7 @@ class ServiceDetailsController extends Controller
         // dd($request->all());
 
         $data = $this->service->store(ServiceDetailsDto::fromRequestDto($request));
-        dd($data);
+
         if($data){ // chi ashxatum
              return redirect()->back()->with('success', 'Контакт успешно создан!');
 
@@ -45,24 +47,21 @@ class ServiceDetailsController extends Controller
 
 
     public function edit(ServiceDetails $model){
-        $files=[];
-        if($model->video!=null){
-            $files[0]['path'] = asset('storage/' . $model->video);
-            $files[0]['id'] = $model->id;
-        }
+        
 
-
+        $categories = CategoryResource::collection(Category::all());
 
         return Inertia::render('Admin/ServiceDetails/Edit',[
-            'contact' => $model,
-            "files" => $files,
+            'model' => $model,
+            'categories' => $categories,
+            'files' => $model->files,
         ]);
 
     }
     public function update(Request $request, $id){
 
 
-        $model = $this->service->update($id,ContactDto::fromRequestDto($request));
+        $model = $this->service->update($id,ServiceDetailsDto::fromRequestDto($request));
 
 
     }

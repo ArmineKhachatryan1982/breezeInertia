@@ -11,7 +11,7 @@ class Contact extends Model
     protected $appends = ['video_url'];
 
     public function getVideoUrlAttribute()
-{
-    return asset('storage/'. $this->video);
-}
+    {
+        return asset('storage/'. $this->video);
+    }
 }

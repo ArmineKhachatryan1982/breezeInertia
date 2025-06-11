@@ -68,7 +68,7 @@ const submitForm = () => {
     <Admin>
         <template #aparat_content>
             <div class="lg:max-w-[500px] md:mb-7.5">
-                                    <div class="p-7.5 border border-[#dfdfdf] seth lg:h-[435.648px]">
+                                    <div class="p-7.5 border border-[#dfdfdf] ">
                                         <div class="flex tab-content nav">
                                             <form
                                                @submit.prevent="submitForm"
