@@ -10,12 +10,22 @@ class ServiceDetailsService
 
     public function __construct( protected ServiceDetailsInterface $serviseDetailsRepository){}
 
+    public function getAll(){
+
+        return $this->serviseDetailsRepository->all();
+
+    }
+    public function create(){
+         return $this->serviseDetailsRepository->create();
+    }
+
     public function store($dto){
 
         $files_array = $dto->file;
         $data = Arr::except($dto->toArray(), ['file']);
 
         $service_details = $this->serviseDetailsRepository->store($data);
+        
         foreach($files_array  as $file){
 
             $files = $this->file_upload( $files_array, $service_details );

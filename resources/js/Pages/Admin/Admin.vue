@@ -1,7 +1,7 @@
 <script setup>
     import Frontend from '@/Layouts/FrontEndLayout.vue';
     import { ref, computed } from 'vue';
-    import {  usePage } from '@inertiajs/vue3';
+    import {  usePage, Head } from '@inertiajs/vue3';
 import Sidebar from './Sidebar.vue';
 </script>
 <template>
@@ -22,7 +22,7 @@ import Sidebar from './Sidebar.vue';
 
                             <slot name="aparat_content"></slot>
 
-                       
+
 
                     </div>
 
