@@ -64,7 +64,7 @@
                                 <source :src="contact.video_url" type="video/mp4">
 
                             </video>
-                            <p v-else>Видео не загружено</p>
+                           
 
 
 
