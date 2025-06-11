@@ -17,18 +17,21 @@
 	<meta name="robots" content="index, follow">
 	<meta name="format-detection" content="telephone=no">
 
-	<meta name="keywords" content="beauty, spa, salon, tailwind css, beauty spa template, salon website, spa design, responsive design, wellness center, beauty salon template, HTML template, CSS template, tailwind theme, beauty services, modern design, user-friendly, website template, UI/UX, minimal design, clean design, spa and wellness, skincare, hair salon, massage therapy, beauty treatments">
-	<meta name="description" content="Discover a modern and responsive Beauty Spa Salon template designed with Tailwind CSS. Perfect for wellness centers, beauty salons, and spa services. Features clean design, user-friendly navigation, and customizable elements for an elegant online presence.">
+	<meta name="keywords" content="Аппаратная косметология, микроиголчатый рф лифтинг, удаление растяжек, IPL фотоомоложение, удаление пигментации, лечение акне, удаление татуажа бровей, удаление новообразований, SMAS-лифтинг,уход за кожей, омоложение, лифтинг, чистка лица, RF-лифтинг, микротоки, кавитация, мезотерапия, биоревитализация, лазерная эпиляция, профессиональная косметология, косметологические процедуры, уход за лицом, косметология в Москве, клиника красоты, эстетическая медицина">
+	<meta name="description" content="Аппаратная косметология — это современный метод ухода за кожей и коррекции эстетических недостатков с помощью специализированных приборов. Данный подход позволяет достичь выраженных результатов в омоложении, улучшении текстуры кожи, устранении пигментации и других косметических проблем....">
 
-	<meta property="og:title" content="BeautyZone : Beauty Spa Salon Tailwind CSS Template | DexignZone">
-	<meta property="og:description" content="Discover a modern and responsive Beauty Spa Salon template designed with Tailwind CSS. Perfect for wellness centers, beauty salons, and spa services. Features clean design, user-friendly navigation, and customizable elements for an elegant online presence.">
-	<meta property="og:image" content="https://beautyzone.dexignzone.com/tailwind/social-image.png">
+	 <!-- ✅ Open Graph теги -->
+        <meta property="og:title" content="Аппаратная косметология" />
+        <meta property="og:description" content="Услуги аппаратной косметологии в Москве" />
+        <meta property="og:image" content="https://aparatnayacosmetalogia.ru/images/preview.jpg" />
+        <meta property="og:url" content="https://aparatnayacosmetalogia.ru" />
+        <meta property="og:type" content="website" />
 
 	<!-- TWITTER META -->
-	<meta name="twitter:title" content="BeautyZone : Beauty Spa Salon Tailwind CSS Template | DexignZone">
+	{{-- <meta name="twitter:title" content="BeautyZone : Beauty Spa Salon Tailwind CSS Template | DexignZone">
 	<meta name="twitter:description" content="Discover a modern and responsive Beauty Spa Salon template designed with Tailwind CSS. Perfect for wellness centers, beauty salons, and spa services. Features clean design, user-friendly navigation, and customizable elements for an elegant online presence.">
 	<meta name="twitter:image" content="https://beautyzone.dexignzone.com/tailwind/social-image.png">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:card" content="summary_large_image"> --}}
 
 	<!-- MOBILE SPECIFIC -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">

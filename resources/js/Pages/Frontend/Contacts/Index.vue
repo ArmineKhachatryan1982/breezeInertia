@@ -64,11 +64,6 @@
                                 <source :src="contact.video_url" type="video/mp4">
 
                             </video>
-                           
-
-
-
-
 						</div>
 					</div>
 					<!-- Left part END -->
