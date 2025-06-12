@@ -10,14 +10,15 @@ class Filable extends Model
 {
     // protected $guarded= [];
     protected $fillable = ['name', 'path',];
+    protected $appends = ['file_path'];
     public function filable(): MorphTo
     {
         return $this->morphTo();
 
     }
 
-    // public function getPathAttribute()
-    // {
-    //     return asset('storage/'. $this->path);
-    // }
+    public function getFilePathAttribute()
+    {
+        return asset('storage/'. $this->path);
+    }
 }

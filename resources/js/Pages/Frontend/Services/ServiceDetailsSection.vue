@@ -56,7 +56,9 @@
                         </h5>
                         <p class="mb-6">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh..</p>
                     </div>
-                    <img :src="`${baseUrl}/storage/${file.path}`" alt="File Image">
+                   
+                    <!-- <img :src="`${baseUrl}/storage/${file.path}`" alt="File Image"> -->
+                     <img :src="file.file_path" alt="File Image">
                 </div>
             </div>
         </div>
