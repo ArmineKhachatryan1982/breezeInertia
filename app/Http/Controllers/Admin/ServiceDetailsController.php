@@ -47,7 +47,7 @@ class ServiceDetailsController extends Controller
 
 
     public function edit(ServiceDetails $model){
-        
+
 
         $categories = CategoryResource::collection(Category::all());
 
@@ -59,9 +59,14 @@ class ServiceDetailsController extends Controller
 
     }
     public function update(Request $request, $id){
+        // dd($request->all(),$id);
 
 
-        $model = $this->service->update($id,ServiceDetailsDto::fromRequestDto($request));
+        $data = $this->service->update($id,ServiceDetailsDto::fromRequestDto($request));
+          if($data){
+             return redirect()->back()->with('success', 'Обновление успешно завершено.');
+
+        }
 
 
     }

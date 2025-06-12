@@ -10,7 +10,7 @@ class Aparat extends Model
     protected $appends = ['aparat_image'];
 
     public function getAparatImageAttribute(){
-        
+
 
           return asset('storage/'. $this->image);
     }

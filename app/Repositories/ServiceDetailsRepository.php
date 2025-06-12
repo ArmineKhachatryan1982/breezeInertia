@@ -24,4 +24,10 @@ class ServiceDetailsRepository implements ServiceDetailsInterface
         return ServiceDetails::create($dto);
 
     }
+    public function update($id,$dto){
+
+        return ServiceDetails::where('id',$id)->update($dto);
+  
+
+    }
 }

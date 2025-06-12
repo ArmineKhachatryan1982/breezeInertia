@@ -3,25 +3,9 @@
     import { onMounted,ref, watch , computed } from 'vue';
     import Admin from '../Admin.vue';
 
-    const appUrl = import.meta.env.VITE_APP_URL;
-
-    const previewUrls = ref([]);
     const { model,categories,files } = usePage().props;
-    console.log(categories)
-
-    if(files?.length>0){
-        // console.log(files, 5456)
-
-       previewUrls.value = files.map(file => ({
-            url: file.path, // путь к изображению, например "/storage/abc.jpg"
-            name: file.name || 'DB file', // имя файла (если есть)
-            id: file.id // можно сохранить ID для удаления по БД
-        }));
-
-
-    }
-    console.log(previewUrls)
-
+    const FilesFromDB = ref([]);   // Файлы из базы
+    const previewUrls = ref([]);   // Новые загруженные файлы
     const form = useForm({
                     category_id: model.category_id,
                     title: model.title,
@@ -29,12 +13,19 @@
                     file: []
 
                 })
-const handleFileUpload = (event) => {
-    const file = event.target.files[0];
 
-    if (file) {
-         previewUrls.value = [];
-        form.file = [];
+if (files?.length > 0) {
+    FilesFromDB.value = files.map(file => ({
+        // filable -i mej ACCESSORI- mijocov stacel em fajly nkarelwuc  xndir chlini
+        url: file.file_path,
+        name: file.name || 'DB file',
+        id: file.id
+    }));
+}
+const handleFileUpload = (event) => {
+
+  const files = Array.from(event.target.files); // превращаем FileList в массив
+   files.forEach(file => {
         const reader = new FileReader();
 
         reader.onload = e => {
@@ -42,18 +33,21 @@ const handleFileUpload = (event) => {
                 url: e.target.result,
                 name: file.name
             };
-            previewUrls.value.push(filePreview);  // ✅ Добавляем в массив превью
-            console.log(previewUrls)
+            previewUrls.value.push(filePreview); // добавляем в превью
         };
 
-        reader.readAsDataURL(file);
-        form.file.push(file); // сохраняем файл для отправки
-    }
+        reader.readAsDataURL(file); // читаем файл
+
+        form.file.push(file); // добавляем в form для отправки
+    });
 };
+
+
+// =======================
 
 const submitForm = () => {
 
-    form.post(route('admin.service_details.update',{ id:contact.id }),{
+    form.post(route('admin.service_details.update',{ id:model.id }),{
         onSuccess: () => {
             if (usePage().props.flash?.success) {
                     alert(usePage().props.flash.success);
@@ -65,14 +59,54 @@ const submitForm = () => {
 
 };
 const isImage = (file) => {
-//     // alert(1111)
-    console.log(file,'2222')
-    // console.log(file.name,'2223')
-//   const imageFormats = ['jpg', 'jpeg', 'png','PNG', 'gif', 'bmp', 'svg'];
-//   const fileExtension = file.name.split('.').pop().toLowerCase();
 
-//   return imageFormats.includes(fileExtension);
-return true;
+  const imageFormats = ['jpg', 'jpeg', 'png','PNG', 'gif', 'bmp', 'svg'];
+  const fileExtension = file.name.split('.').pop().toLowerCase();
+
+  return imageFormats.includes(fileExtension);
+// return true;
+};
+
+// Remove file from preview and form data
+const removeNewFile =async (index,event) => {
+    if (!event) {
+    console.log("Event is undefined");
+    return;
+  }
+
+    const hasDataDb = event.target.hasAttribute('data-db');
+    if (hasDataDb) {
+
+        const element = event.target.closest(".preview-item");
+
+
+
+            try {
+                const response = await axios.delete(`/delete-item/filables/${index}`);
+
+
+                // Remove file from UI after successful deletion
+                if (element) {
+
+                    const elementId = element.getAttribute("data-id"); // Get data-id attribute
+
+                    if (parseInt(elementId) === index) { // Compare with file.id
+                       element.remove(); // Remove from DOM
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error deleting file:', error.response?.data || error.message);
+            }
+
+
+
+    // Perform your logic here for when the attribute exists
+  } else {
+
+        form.file.splice(index, 1);
+        previewUrls.value.splice(index, 1);
+  }
 };
 
 
@@ -136,23 +170,42 @@ return true;
                                                     <label class="font-bold mb-2.5 inline-block">Загрузить файл*</label>
                                                     <input
                                                        type="file"
+                                                       multiple
                                                        @change="handleFileUpload"
                                                       class="text-base h-13.5 px-5 leading-5 outline-none block w-full border border-[#dfdfdf] text-[#495057] font-normal focus:bg-white " >
                                                 </div>
 
-                                               <div v-if="previewUrls.length>0">
-                                                <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
+                                               <!-- <div v-if="previewUrls.length>0">
+                                                    <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
+                                                        <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
                                                             <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                                <!-- <img :src="file.url" class="preview-img"> -->
-                                                                 <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                                <!-- <img :src="file.get_path" class="preview-img"> -->
-
-
+                                                                <img :src="file.url" class="preview-img">
                                                             </div>
-                                                            </div>
-                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div> -->
 
+                                                <div v-if="FilesFromDB.length > 0">
+                                                    <div v-for="(file, index) in FilesFromDB" :key="index" class="preview-item"  :data-id="file.id" >
+                                                        <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
+                                                            <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
+                                                                <img :src="file.url" class="preview-img">
+                                                                <i class="bx bx-trash delete-icon delete-prw cursor-pointer text-red-500" data-db @click.prevent="removeNewFile(file.id, $event)"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                </div>
+                                               <div v-if="previewUrls.length > 0">
+                                                    <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
+                                                        <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
+                                                            <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
+                                                                <img :src="file.url" class="preview-img">
+                                                                 <i class="bx bx-trash delete-icon delete-db cursor-pointer text-red-500"  @click.prevent="removeNewFile(file.id, $event)"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+
                                                 <div class="text-left mt-2">
                                                     <button class="site-button text-sm py-3.5 px-7.5 uppercase rounded-none">Сохранить</button>
                                                     <!-- <a @click.prevent="tab = 'forgot-password'" href="#forgot-password" class="ml-1.25 text-left text-primary hover:text-[#666] duration-500 "><i class="fa-solid fa-unlock"></i> Forgot Password</a> -->

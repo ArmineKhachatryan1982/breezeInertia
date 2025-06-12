@@ -127,6 +127,7 @@ return true;
                                                 <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
                                                             <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
                                                                 <img :src="file.url" class="preview-img">
+                                                                <!-- <img :src="file.aparat_image" class="preview-img"> -->
 
 
                                                             </div>

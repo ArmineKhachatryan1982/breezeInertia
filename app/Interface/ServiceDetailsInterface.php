@@ -5,5 +5,6 @@ interface ServiceDetailsInterface
     public function all();
     public function create();
     public function store(array $dto);
+    public function update($id,$dto);
 
 }
