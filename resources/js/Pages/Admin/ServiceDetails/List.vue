@@ -61,14 +61,16 @@
                                                 <thead>
                                                 <tr>
                                                     <th class="border border-gray-400 px-4 py-2">Номер</th>
-                                                    <th class="border border-gray-400 px-4 py-2">Адрес</th>
-                                                    <th class="border border-gray-400 px-4 py-2">Номер телефона</th>
+                                                     <th class="border border-gray-400 px-4 py-2">Название категории</th>
+                                                    <th class="border border-gray-400 px-4 py-2">Заголовок </th>
+                                                    <th class="border border-gray-400 px-4 py-2">Описание</th>
                                                     <th class="border border-gray-400 px-4 py-2">Действие</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr v-for="(item, index) in data" :key="index" :data-id="item.id" >
+                                                <tr v-for="(item, index) in data" :key="index" :data-id="item.id">
                                                     <td class="border border-gray-400 px-4 py-2">{{++index}}</td>
+                                                      <td class="border border-gray-400 px-4 py-2">{{ item.category.name }}</td>
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.title }}</td>
                                                     <td class="border border-gray-400 px-4 py-2">{{ item.description }}</td>
                                                      <td class="border border-gray-400 px-4 py-2 ">
@@ -78,7 +80,7 @@
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L8.317 18.397a4.5 4.5 0 0 1-1.89 1.128l-4.06 1.277a.375.375 0 0 1-.475-.474l1.277-4.06a4.5 4.5 0 0 1 1.128-1.89L16.862 3.487z" />
                                                             </svg>
                                                             </Link>
-                                                            <i class="bx bx-trash delete-icon cursor-pointer text-red-500" @click.prevent="removeRecord(item.id, 'contacts', $event)"></i>
+                                                            <i class="bx bx-trash delete-icon cursor-pointer text-red-500" @click.prevent="removeRecord(item.id, 'service_details', $event)"></i>
                                                         </div>
                                                      </td>
                                                 </tr>

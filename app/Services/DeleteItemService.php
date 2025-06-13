@@ -18,6 +18,7 @@ class DeleteItemService
 
       $className = 'App\Models\\' . Str::studly(Str::singular($tb_name));
 
+
       $model = '';
 
       if(class_exists($className)) {
@@ -36,21 +37,14 @@ class DeleteItemService
           $file_path = '';
           $item_db = $item->first();
 
-          if($item_db->activation == 1 && $item_db->activation !== null){
-            $person_permissions = PersonPermission::where('entry_code_id',$item_db->id)->value('person_id');
-            $person = Person::where('id',$person_permissions)->value('id');
-            $superviceds = Superviced::where('people_id',$person)->first();
-            if($superviceds){
-
-                 throw new Exception("Նախքան ջնջելը աշխատակցին անհրաժեշտ է հանել վերահսկման ցուցակից");
-
-            }
-
-          }
-
+         
 
           if(isset($item_db->image)){
+
             Storage::disk('public')->deleteDirectory("$tb_name/$id");
+          }
+           elseif(isset($item_db->files) && count($item_db->files) > 0){
+                Storage::disk('public')->deleteDirectory("$tb_name/$id");
           }
           else{
 
@@ -61,6 +55,9 @@ class DeleteItemService
                 if(isset($item_db->video)){
                   $file_path = $item_db->video;
                 }
+                if(isset($item_db->map)){
+                  $file_path = $item_db->map;
+                }
                 if(isset($item_db->path)){
                   $file_path = $item_db->path;
                 }
@@ -69,16 +66,8 @@ class DeleteItemService
           }
 
 
-        if($tb_name == 'people'){
 
-                  $item_db->activated_code_connected_person();
-                  if($item_db->activated_code_connected_person !=null){
-                    $item_db->activated_code_connected_person->status = 0;
-                    $item_db->activated_code_connected_person->save();
 
-                    $entry_code = self::entryCodeChangeStatus($item_db->activated_code_connected_person->entry_code_id);
-                  }
-        }
         // dd($tb_name, $item);
 
         //   $delete = $item ? $item->delete() : false;

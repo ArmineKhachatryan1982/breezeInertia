@@ -9,7 +9,7 @@ class ServiceDetailsRepository implements ServiceDetailsInterface
 {
     public function all(){
 
-         $data = ServiceDetails::all();
+         $data = ServiceDetails::with('category')->get();
          return $data;
 
     }
@@ -27,7 +27,7 @@ class ServiceDetailsRepository implements ServiceDetailsInterface
     public function update($id,$dto){
 
         return ServiceDetails::where('id',$id)->update($dto);
-  
+
 
     }
 }
