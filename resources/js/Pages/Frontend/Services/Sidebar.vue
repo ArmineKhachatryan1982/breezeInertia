@@ -1,14 +1,17 @@
 <script setup>
-
-
-
 const props = defineProps({
     categories: Array
 });
 
 const emit = defineEmits(['category-selected']);
+
+
+// добавляем локальное состояние
+// const selectedCategory = ref(null);
+
 // мы передаем объект category родительскому компоненту
 const selectCategory = (category) => {
+    //  selectedCategory.value = category; // сохраняем выбранную категорию
     emit('category-selected', category);
 };
 </script>
@@ -16,13 +19,17 @@ const selectCategory = (category) => {
     <div class="lg:col-span-3 md:col-span-4 col-span-12">
 							<div class="sticky-top sticky top-29">
 								<ul class="service-list mb-7.5">
-                                    <li v-for="category in categories"  :key="category.id" class="mb-[3px] active"
-
-                                     >
-                                       
-                                             <a @click.prevent="selectCategory(category)" href="#" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] border-l-[3px] border-primary">
+                                    <li v-for="category in categories"  :key="category.id" class="mb-[3px]"
+                                        :class="{'active':selectedCategory?.id === category.id}"
+                                    >
+                                        <a @click.prevent="selectCategory(category)" href="#"
+                                         class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] "
+                                         :class="{
+                                                'border-l-[3px] border-primary': selectedCategory?.id === category.id
+                                                    }"
+                                                                                    >
                                                    {{ category.name }}
-                                            </a>
+                                                   </a>
                                             </li>
 
 									<!-- <li class="mb-[3px] active"><a href="services-details.html" class="py-3.75 px-5 bg-[#fef5fe] block w-full text-[#4f0035] border-l-[3px] border-primary">Haircut &amp; Styling</a></li>

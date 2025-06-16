@@ -27,6 +27,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
 
 <div class="page-content bg-white">
 <!-- Slider -->
+<h1  style="display:none" title="aparatnayacosmetalogia">aппаратная косметология</h1>
     <div class="main-banner relative">
         <div class="swiper home-slider1 benner-swiper-button !h-[50vh] lg:!h-[86vh]">
             <div class="swiper-wrapper">
@@ -45,6 +46,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide bg-[url('assets/images/main-slider/slide2.jpg')] bg-no-repeat bg-cover bg-[50%]  relative max-lg:after:content-[''] max-lg:after:absolute max-lg:after:left-0 max-lg:after:bottom-0 max-lg:after:size-full max-lg:after:-z-1 max-lg:after:min-h-[400px] max-lg:after:!bg-white max-lg:after:opacity-60">
                      <div class="px-3.75 relative lg:w-[1200px] md:w-[720px] sm:w-[540px] w-full !h-60vh mx-auto max-md:text-center top-1/2 -translate-y-1/2">
                         <h1 class="text-primary md:text-[65px] sm:text-[50px] text-3xl leading-10 md:leading-[80px] sm:leading-[60px] font-extrabold font-nunito capitalize">
@@ -173,7 +175,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                         alt="Фото аппарата"
                         class="w-52 h-60 object-cover"
                     />
-                  
+
                     <span class="mt-2 text-gray-700 font-semibold">{{ aparat.title }}</span>
                     <span class="mt-2 text-gray-700 font-semibold">{{ aparat.description }}</span>
                     </div>

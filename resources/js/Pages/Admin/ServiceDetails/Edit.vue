@@ -123,6 +123,11 @@ const removeNewFile =async (index,event) => {
   height: 100px;
   object-fit: cover;
   border-radius: 5px;
+ display: inline-block !important;
+
+}
+.delete-icon{
+
 
 }
 
@@ -185,24 +190,24 @@ const removeNewFile =async (index,event) => {
                                                     </div>
                                                </div> -->
 
-                                                <div v-if="FilesFromDB.length > 0">
+                                                <div v-if="FilesFromDB?.length > 0">
                                                     <div v-for="(file, index) in FilesFromDB" :key="index" class="preview-item"  :data-id="file.id" >
-                                                        <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                            <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                                <img :src="file.url" class="preview-img">
-                                                                <i class="bx bx-trash delete-icon delete-prw cursor-pointer text-red-500" data-db @click.prevent="removeNewFile(file.id, $event)"></i>
+
+                                                            <div class="d-flex  mt-2 justify-content-between" v-if="isImage(file)"  >
+                                                                <img :src="file.url" class="preview-img" style="max-width: 100px; height: auto;">
+                                                                <i class="bx bx-trash delete-icon delete-prw cursor-pointer text-red-500" data-db @click.prevent="removeNewFile(file.id, $event)" style="position: absolute; top: 5px;"></i>
                                                             </div>
-                                                        </div>
+
                                                     </div>
                                                </div>
-                                               <div v-if="previewUrls.length > 0">
+                                               <div v-if="previewUrls?.length > 0">
                                                     <div v-for="(file, index) in previewUrls" :key="index" class="preview-item"  >
-                                                        <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                            <div class="files d-flex align-items-start mt-2" v-if="isImage(file)" >
-                                                                <img :src="file.url" class="preview-img">
-                                                                 <i class="bx bx-trash delete-icon delete-db cursor-pointer text-red-500"  @click.prevent="removeNewFile(file.id, $event)"></i>
+
+                                                            <div class="d-flex justify-content-between mt-2" v-if="isImage(file)"  >
+                                                                <img :src="file.url" class="preview-img" style="max-width: 100px; height: auto;">
+                                                                 <i class="bx bx-trash delete-icon delete-db cursor-pointer text-red-500"  @click.prevent="removeNewFile(file.id, $event)" style="position: absolute; top: 5px;"></i>
                                                             </div>
-                                                        </div>
+
                                                     </div>
                                                </div>
 
