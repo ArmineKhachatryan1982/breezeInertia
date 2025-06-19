@@ -173,7 +173,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                         alt="Фото аппарата"
                         class="w-52 h-60 object-cover"
                     />
-                  
+
                     <span class="mt-2 text-gray-700 font-semibold">{{ aparat.title }}</span>
                     <span class="mt-2 text-gray-700 font-semibold">{{ aparat.description }}</span>
                     </div>
@@ -209,7 +209,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо </h4>
-                                    <p>60 – 100 Minute Session </p>
+                                    <!-- <p>60 – 100 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">10000 руб</h3>
@@ -218,7 +218,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Шея</h4>
-                                    <p>30 – 40 Minute Session  </p>
+                                    <!-- <p>30 – 40 Minute Session  </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">8000 руб</h3>
@@ -227,7 +227,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Декольте </h4>
-                                    <p>60 – 100 Minute Session </p>
+                                    <!-- <p>60 – 100 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">8000 руб</h3>
@@ -239,7 +239,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо + шея</h4>
-                                    <p>40 – 60 Minute Session</p>
+                                    <!-- <p>40 – 60 Minute Session</p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">15000 руб</h3>
@@ -248,7 +248,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо +шея+ декольте </h4>
-                                    <p>50 – 60 Minute Session </p>
+                                    <!-- <p>50 – 60 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">20000 руб</h3>
@@ -257,7 +257,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Кисти рук</h4>
-                                    <p>20 – 30 Minute Session  </p>
+                                    <!-- <p>20 – 30 Minute Session  </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">6000 руб</h3>
@@ -282,7 +282,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо </h4>
-                                    <p>60 – 100 Minute Session </p>
+                                    <!-- <p>60 – 100 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">7000  руб</h3>
@@ -291,7 +291,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Шея</h4>
-                                    <p>30 – 40 Minute Session  </p>
+                                    <!-- <p>30 – 40 Minute Session  </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">6000  руб</h3>
@@ -300,7 +300,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Декольте </h4>
-                                    <p>60 – 100 Minute Session </p>
+                                    <!-- <p>60 – 100 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">6000  руб</h3>
@@ -312,7 +312,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо + шея</h4>
-                                    <p>40 – 60 Minute Session</p>
+                                    <!-- <p>40 – 60 Minute Session</p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">10000  руб</h3>
@@ -321,7 +321,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо +шея+ декольте </h4>
-                                    <p>50 – 60 Minute Session </p>
+                                    <!-- <p>50 – 60 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">15000  руб</h3>
@@ -330,7 +330,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Кисти рук</h4>
-                                    <p>20 – 30 Minute Session  </p>
+                                    <!-- <p>20 – 30 Minute Session  </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">4000  руб</h3>
@@ -355,7 +355,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо </h4>
-                                    <p>60 – 100 Minute Session </p>
+                                    <!-- <p>60 – 100 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">13000  руб</h3>
@@ -364,7 +364,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Шея</h4>
-                                    <p>30 – 40 Minute Session  </p>
+                                    <!-- <p>30 – 40 Minute Session  </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">8000   руб</h3>
@@ -373,7 +373,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Декольте </h4>
-                                    <p>60 – 100 Minute Session </p>
+                                    <!-- <p>60 – 100 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">8000   руб</h3>
@@ -385,7 +385,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо + шея</h4>
-                                    <p>40 – 60 Minute Session</p>
+                                    <!-- <p>40 – 60 Minute Session</p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">17000 руб</h3>
@@ -394,7 +394,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Лицо +шея+ декольте </h4>
-                                    <p>50 – 60 Minute Session </p>
+                                    <!-- <p>50 – 60 Minute Session </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">24000 руб</h3>
@@ -403,7 +403,7 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                             <div class="p-5 bg-white mb-7.5 shadow-[0_0_30px_0_rgba(0,0,0,.05)] duration-500 hover:scale-105 flex">
                                 <div class="flex-1">
                                     <h4 class="text-primary mb-2.5 text-[20px] md:text-[28px] font-bold font-nunito">Смас лифтинг линия</h4>
-                                    <p>20 – 30 Minute Session  </p>
+                                    <!-- <p>20 – 30 Minute Session  </p> -->
                                 </div>
                                 <div class="self-center">
                                     <h3 class="text-secondary text-[25px] md:text-[35px] font-extrabold">30   руб</h3>

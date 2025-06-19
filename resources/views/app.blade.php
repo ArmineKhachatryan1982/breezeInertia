@@ -27,12 +27,7 @@
         <meta property="og:url" content="https://aparatnayacosmetalogia.ru" />
         <meta property="og:type" content="website" />
 
-	<!-- TWITTER META -->
-	{{-- <meta name="twitter:title" content="BeautyZone : Beauty Spa Salon Tailwind CSS Template | DexignZone">
-	<meta name="twitter:description" content="Discover a modern and responsive Beauty Spa Salon template designed with Tailwind CSS. Perfect for wellness centers, beauty salons, and spa services. Features clean design, user-friendly navigation, and customizable elements for an elegant online presence.">
-	<meta name="twitter:image" content="https://beautyzone.dexignzone.com/tailwind/social-image.png">
-	<meta name="twitter:card" content="summary_large_image"> --}}
-
+	
 	<!-- MOBILE SPECIFIC -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
