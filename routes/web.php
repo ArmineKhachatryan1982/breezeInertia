@@ -13,12 +13,16 @@ use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Service\ServiceDetailsController;
 use App\Http\Controllers\Subscriber\SubscriberController as SubscriberSubscriberController;
 use App\Http\Controllers\SubscriberController;
+use App\Models\Category;
 use App\Models\ServiceDetails;
 use App\Services\FileUploadService;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -87,7 +91,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/{id}',[AdminContactController::class, 'update'])->name('update');
         // ============================
     });
-    
+
     Route::prefix('service_details')->name('service_details.')->group(function () {
 
         Route::get('list', [AdminServiceDetailsController::class, 'index'])->name('list');
@@ -102,5 +106,25 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::delete('delete-item/{tb_name}/{id}', [DeleteItemController::class, 'index'])->name('delete_item');
 Route::post('subscriber',SubscriberController::class)->name('subscriber');
+// =====sitemap ==========
+Route::get('/generate-sitemap', function () {
+    $baseUrl = config('app.url'); // https://aparatnayacosmetologia.ru
+
+    $sitemap = Sitemap::create()
+        ->add(Url::create($baseUrl . '/'))
+        ->add(Url::create($baseUrl . '/services'))
+        ->add(Url::create($baseUrl . '/contact'));
+
+    $categories = Category::all();
+    $categoryIds = $categories->pluck('id')->toArray();
+
+    foreach ($categoryIds as $categoryId) {
+        $sitemap->add(Url::create($baseUrl . "/services?category_id={$categoryId}"));
+    }
+
+    $sitemap->writeToFile(public_path('sitemap.xml'));
+
+    return 'sitemap.xml создан!';
+});
 
 require __DIR__.'/auth.php';
