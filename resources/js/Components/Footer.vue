@@ -102,7 +102,7 @@ const submitForm = () => {
 					<div class="sm:col-span-6 col-span-12 text-center md:text-left">
 						<span class="opacity-70 text-sm  text-black capitalize">Copyright ©</span>
 						<span class="current-year text-sm">2025</span>
-						<a href="https://dexignzone.com/" class="text-sm text-black opacity-70 font-semibold hover:text-primary hover:duration-500 duration-500" target="_blank">DexignZone</a>
+						<!-- <a href="https://dexignzone.com/" class="text-sm text-black opacity-70 font-semibold hover:text-primary hover:duration-500 duration-500" target="_blank">DexignZone</a> -->
 					</div>
 					<!-- <div class="sm:col-span-6 col-span-12 text-center md:text-right">
 						<ul>
