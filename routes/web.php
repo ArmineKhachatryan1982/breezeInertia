@@ -115,12 +115,12 @@ Route::get('/generate-sitemap', function () {
         ->add(Url::create($baseUrl . '/services'))
         ->add(Url::create($baseUrl . '/contact'));
 
-    $categories = Category::all();
-    $categoryIds = $categories->pluck('id')->toArray();
+    // $categories = Category::all();
+    // $categoryIds = $categories->pluck('id')->toArray();
 
-    foreach ($categoryIds as $categoryId) {
-        $sitemap->add(Url::create($baseUrl . "/services?category_id={$categoryId}"));
-    }
+    // foreach ($categoryIds as $categoryId) {
+    //     $sitemap->add(Url::create($baseUrl . "/services?category_id={$categoryId}"));
+    // }
 
     $sitemap->writeToFile(public_path('sitemap.xml'));
 

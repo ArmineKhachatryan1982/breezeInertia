@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps({
-    categories: Array
+    categories: Array,
+    selectedCategory: Object
 });
 
 const emit = defineEmits(['category-selected']);

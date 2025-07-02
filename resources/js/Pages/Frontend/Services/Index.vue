@@ -2,7 +2,7 @@
 
     import Frontend from '@/Layouts/FrontEndLayout.vue';
     import { ref, computed , watchEffect} from 'vue';
-    import {  usePage } from '@inertiajs/vue3';
+    import { router, usePage } from '@inertiajs/vue3';
 
     import { Head } from '@inertiajs/vue3';
     import Sidebar from './Sidebar.vue';
@@ -22,12 +22,13 @@
             }
         });
     console.log( categories,'from  service index')
+    console.log('Её сервисы:', selectedCategory.value?.service_details ?? []);
 
 
     const handleCategorySelect = (category) => {
-        console.log(category,777)
-        selectedCategory.value = category;
-        console.log(selectedCategory.value,666)
+
+        router.get('/services', { category_id: category.id });
+
     };
 
 
@@ -40,8 +41,12 @@
 			<div class="md:py-20 py-7.5 relative">
 				<div class="container">
 					<div class="grid grid-cols-12 gap-x-7.5">
-
-                       <Sidebar :categories="categories" @category-selected="handleCategorySelect" />
+                       <!--category-selected գալիս է komponentic sidebar.vue-ic,և այստեղ կարիք չկա հայտարարելու իկ արդեն կոմպոնենտում emit-ի միջոցով ենք ասում, որ կոմպոնենտից դուրս է գալու category-selected իրադարձությունը category օբյեկտը    -->
+                       <Sidebar
+                          :categories="categories"
+                          :selected-category="selectedCategory"
+                          @category-selected="handleCategorySelect" />
+                       <!-- service_details mi paluchaem  -->
                        <ServiceDetailsSection
                              :service-details="selectedCategory?.service_details ?? []"
                         />

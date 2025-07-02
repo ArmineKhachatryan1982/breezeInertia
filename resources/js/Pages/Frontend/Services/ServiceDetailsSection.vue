@@ -54,9 +54,9 @@
                         <h5 class="text-lg text-black mb-2.5 font-bold font-nunito">
                            Клиент до и после
                         </h5>
-                        <p class="mb-6">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh..</p>
+                        <!-- <p class="mb-6">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh..</p> -->
                     </div>
-                   
+
                     <!-- <img :src="`${baseUrl}/storage/${file.path}`" alt="File Image"> -->
                      <img :src="file.file_path" alt="File Image">
                 </div>
