@@ -32,6 +32,7 @@ use Spatie\Sitemap\Tags\Url;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
 Route::get('/clear-cache', function() {
 
     $run = Artisan::call('config:clear');
@@ -69,8 +70,7 @@ Route::post('category_file',[CategoriesFileController::class,'store'])->name('ca
 Route::get('get-file', [FileUploadService::class, 'get_file'])->name('get-file');
 Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
 
-// Route::get('create-aparat',[AparatController::class,'index'])->name('aparat.create');
-// Route::post('store',[AparatController::class,'store'])->name('aparat.store');
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('aparat')->name('aparat.')->group(function () {
@@ -115,16 +115,20 @@ Route::get('/generate-sitemap', function () {
         ->add(Url::create($baseUrl . '/services'))
         ->add(Url::create($baseUrl . '/contact'));
 
-    // $categories = Category::all();
-    // $categoryIds = $categories->pluck('id')->toArray();
 
-    // foreach ($categoryIds as $categoryId) {
-    //     $sitemap->add(Url::create($baseUrl . "/services?category_id={$categoryId}"));
-    // }
 
     $sitemap->writeToFile(public_path('sitemap.xml'));
 
     return 'sitemap.xml создан!';
+});
+// ========= 404 page====
+Route::fallback(function () {
+    // Только для обычных (не API) маршрутов
+    if (request()->expectsJson() || request()->is('api/*')) {
+        abort(404);
+    }
+
+    return Inertia::render('Errors/404')->toResponse(request())->setStatusCode(404);
 });
 
 require __DIR__.'/auth.php';
