@@ -58,7 +58,7 @@
                     </div>
 
                     <!-- <img :src="`${baseUrl}/storage/${file.path}`" alt="File Image"> -->
-                     <img :src="file.file_path" alt="File Image">
+                     <img :src="file.file_path" alt="File Image" title="Аппаратная косметология">
                 </div>
             </div>
         </div>

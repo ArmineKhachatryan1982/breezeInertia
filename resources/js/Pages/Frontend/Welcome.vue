@@ -121,14 +121,14 @@ import { router, Head,usePage, Link } from '@inertiajs/vue3';
                 <div class="relative grid sm:grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
                 <!-- Первый блок -->
                 <div class="flex flex-col items-center bg-gray-100 p-3 rounded-lg shadow-md">
-                    <img src="/assets/images/our-team/Arevik.jpg" alt="Profile 1" class="w-52 h-60 object-cover">
+                    <img src="/assets/images/our-team/Arevik.jpg" alt="Profile 1" class="w-52 h-60 object-cover" title="Косметолог">
                     <span class="mt-2 text-gray-700 font-semibold">Аревик Хачатрян</span>
                     <span class="mt-2 text-gray-700 font-semibold">Косметолог</span>
                 </div>
 
                 <!-- Второй блок -->
                 <div class="flex flex-col items-center bg-gray-100 p-3 rounded-lg shadow-md">
-                    <img src="/assets/images/our-team/Sati2.jpg" alt="Profile 2" class="w-52 h-60 object-cover">
+                    <img src="/assets/images/our-team/Sati2.jpg" alt="Profile 2" class="w-52 h-60 object-cover" title="Косметолог-массажист">
                     <span class="mt-2 text-gray-700 font-semibold">Сати Микаелян</span>
                     <span class="mt-2 text-gray-700 font-semibold">Косметолог-массажист</span>
                 </div>
