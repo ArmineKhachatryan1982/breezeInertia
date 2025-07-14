@@ -25,18 +25,16 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
 
         $exceptions->respond(function (Response $response, Throwable $exception, Request $request) {
-            if (in_array($response->getStatusCode(), [500, 503, 404, 403])) {
-                return Inertia::render('Frontend/Errors/ErrorPage', [
-                    'status' => $response->getStatusCode(),
-                ])
-                ->toResponse($request)
-                ->setStatusCode($response->getStatusCode());
+
+            if (! app()->environment(['local', 'testing']) && in_array($response->getStatusCode(), [500, 503, 404, 403])) {
+                return Inertia::render('Frontend/Errors/ErrorPage', ['status' => $response->getStatusCode()])
+                    ->toResponse($request)
+                    ->setStatusCode($response->getStatusCode());
             } elseif ($response->getStatusCode() === 419) {
                 return back()->with([
-                    'message' => 'Сессия истекла, пожалуйста, попробуйте снова.',
+                    'message' => 'The page expired, please try again.',
                 ]);
             }
-
             return $response;
         });
     })->create();

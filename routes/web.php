@@ -121,14 +121,6 @@ Route::get('/generate-sitemap', function () {
 
     return 'sitemap.xml создан!';
 });
-// ========= 404 page====
-// Route::fallback(function () {
-//     // Только для обычных (не API) маршрутов
-//     if (request()->expectsJson() || request()->is('api/*')) {
-//         abort(404);
-//     }
 
-//     return Inertia::render('Frontend/Errors/NotFound')->toResponse(request())->setStatusCode(404);
-// });
 
 require __DIR__.'/auth.php';
